@@ -1,4 +1,4 @@
-<!-- 2) Crie uma página no qual o usuário digite 3 valores. Logo após o botão Verificar, é necessário calcular o valor do MEIO por 2 e o resultado verificar se está entre o primeiro e o último número. Caso esteja, mostrar: o numero X está entre o número INICIAL e FINAL. Caso contrário: o numero X NÃO está entre o número INICIAL e FINAL -->
+<!-- 2) Crie uma página no qual o usuário digite 3 valores. Logo após o botão Verificar, é necessário calcular o valor do MEIO DIVIDO por 2 e o resultado verificar se está entre o primeiro e o último número. Caso esteja, mostrar: o numero X está entre o número INICIAL e FINAL. Caso contrário: o numero X NÃO está entre o número INICIAL e FINAL -->
 
 <?php
 
@@ -6,21 +6,21 @@ $n1 = '';
 $n2 = '';
 $n3 = '';
 
-$mult = '';
+$div = '';
 
 if (isset($_POST['btn_verificar'])) {
     $n1 = $_POST['n1'];
     $n2 = $_POST['n2'];
     $n3 = $_POST['n3'];
 
-    if (trim($n1) == '' && trim($mult) == '' && trim($n3) == '') {
+    if (trim($n1) == '' && trim($div) == '' && trim($n3) == '') {
         echo "Preencher os campos vazios!";
     } else {
-        $mult = $n2 * 2;
-        if ($n1 <= $mult && $n3 >= $mult) {
-            echo "O valor $mult está entre $n1 e $n3";
+        $div = $n2 / 2;
+        if ($n1 <= $div && $n3 >= $div) {
+            echo "O valor $div está entre $n1 e $n3";
         } else {
-            echo "O valor $mult não está entre $n1 e $n3";
+            echo "O valor $div não está entre $n1 e $n3";
         }
     }
 }
