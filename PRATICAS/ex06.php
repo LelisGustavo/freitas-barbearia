@@ -6,25 +6,31 @@ $n1 = '';
 $n2 = '';
 $n3 = '';
 $total = '';
-if(isset($_POST['btn_calcular'])) {
+if (isset($_POST['btn_calcular'])) {
     $n1 = $_POST['n1'];
     $n2 = $_POST['n2'];
     $n3 = $_POST['n3'];
 
-    $soma = $n1 + $n3;
-    $total = $soma / $n2;
+    if (trim($n1) == '' && trim($n2) == '' && trim($n3) == '') {
+        echo "Preecher os campos";
+    } else {
+        $soma = $n1 + $n3;
+        $total = $soma / $n2;
+    }
 }
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ex 06</title>
 </head>
+
 <body>
     <form action="ex06.php" method="post">
         <label>Núemro 1</label>
@@ -37,4 +43,5 @@ if(isset($_POST['btn_calcular'])) {
         <input disabled value="<?= $total ?>">
     </form>
 </body>
+
 </html>

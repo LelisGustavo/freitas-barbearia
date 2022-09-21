@@ -1,20 +1,27 @@
+<!-- 2) Crie uma página no qual o usuário digite 3 valores. Logo após o botão Verificar, é necessário calcular o valor do MEIO por 2 e o resultado verificar se está entre o primeiro e o último número. Caso esteja, mostrar: o numero X está entre o número INICIAL e FINAL. Caso contrário: o numero X NÃO está entre o número INICIAL e FINAL -->
+
 <?php
 
 $n1 = '';
 $n2 = '';
 $n3 = '';
 
+$mult = '';
+
 if (isset($_POST['btn_verificar'])) {
     $n1 = $_POST['n1'];
     $n2 = $_POST['n2'];
     $n3 = $_POST['n3'];
 
-    if (trim($n1) == '' && trim($n2) == '' && trim($n3) == '') {
+    if (trim($n1) == '' && trim($mult) == '' && trim($n3) == '') {
         echo "Preencher os campos vazios!";
-    } else if ($n1 <= $n2 && $n3 >= $n2) {
-        echo "O valor $n2 está entre $n1 e $n3";
     } else {
-        echo "O valor $n2 não está entre $n1 e $n3";
+        $mult = $n2 * 2;
+        if ($n1 <= $mult && $n3 >= $mult) {
+            echo "O valor $mult está entre $n1 e $n3";
+        } else {
+            echo "O valor $mult não está entre $n1 e $n3";
+        }
     }
 }
 
@@ -31,7 +38,7 @@ if (isset($_POST['btn_verificar'])) {
 </head>
 
 <body>
-    <form action="ex010.php" method="post">
+    <form action="ex10.php" method="post">
         <label>Número 1:</label>
         <input type="text" name="n1" value="<?= $n1 ?>">
         <label>Número 2:</label>

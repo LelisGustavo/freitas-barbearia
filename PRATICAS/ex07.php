@@ -21,10 +21,13 @@ if (isset($_POST['btn_calcular'])) {
     $n6 = $_POST['n6'];
     $n7 = $_POST['n7'];
 
-    $soma = $n1 + $n2 + $n3;
-    $multiplicar = $n4 * $n5 * $n6 * $n7;
-    $total = $soma + $multiplicar;
-
+    if (trim($n1) == '' && trim($n2) == '' && trim($n3) == '' && trim($n4) == '' && trim($n5) == '' && trim($n5) == '' && trim($n7) == '') {
+        echo "Preencher todos os campos corretamente";
+    } else {
+        $soma = $n1 + $n2 + $n3;
+        $multiplicar = $n4 * $n5 * $n6 * $n7;
+        $total = $soma + $multiplicar;
+    }
 }
 
 ?>

@@ -95,27 +95,43 @@ if (isset($_POST['btn_calcular'])) {
     $per_nov = $_POST['per_nov'];
     $per_dez = $_POST['per_dez'];
 
-    $luc_jan = $gan_jan - $per_jan;
-    $luc_fev = $gan_fev - $per_fev;
-    $luc_mar = $gan_mar - $per_mar;
-    $luc_abr = $gan_abr - $per_abr;
-    $luc_mai = $gan_mai - $per_mai;
-    $luc_jun = $gan_jun - $per_jun;
-    $luc_jul = $gan_jul - $per_jul;
-    $luc_ago = $gan_ago - $per_ago;
-    $luc_set = $gan_set - $per_set;
-    $luc_out = $gan_out - $per_out;
-    $luc_nov = $gan_nov - $per_nov;
-    $luc_dez = $gan_dez - $per_dez;
+    if (trim($gan_jan) == '' && trim($per_jan) == '' &&
+        trim($gan_fev) == '' && trim($per_fev) == '' &&
+        trim($gan_mar) == '' && trim($per_mar) == '' &&
+        trim($gan_abr) == '' && trim($per_abr) == '' &&
+        trim($gan_mai) == '' && trim($per_mai) == '' &&
+        trim($gan_jun) == '' && trim($per_jun) == '' &&
+        trim($gan_jul) == '' && trim($per_jul) == '' &&
+        trim($gan_ago) == '' && trim($per_ago) == '' &&
+        trim($gan_set) == '' && trim($per_set) == '' &&
+        trim($gan_out) == '' && trim($per_out) == '' &&
+        trim($gan_nov) == '' && trim($per_nov) == '' &&
+        trim($gan_dez) == '' && trim($per_dez) == '') {
+            echo "Preencher todos os campos corretamente <hr>";
+        } else {
+            $luc_jan = $gan_jan - $per_jan;
+            $luc_fev = $gan_fev - $per_fev;
+            $luc_mar = $gan_mar - $per_mar;
+            $luc_abr = $gan_abr - $per_abr;
+            $luc_mai = $gan_mai - $per_mai;
+            $luc_jun = $gan_jun - $per_jun;
+            $luc_jul = $gan_jul - $per_jul;
+            $luc_ago = $gan_ago - $per_ago;
+            $luc_set = $gan_set - $per_set;
+            $luc_out = $gan_out - $per_out;
+            $luc_nov = $gan_nov - $per_nov;
+            $luc_dez = $gan_dez - $per_dez;
+        
+            $tot_gan = $gan_jan + $gan_fev + $gan_mar + $gan_abr + $gan_mai + $gan_jun +
+                       $gan_jul + $gan_ago + $gan_set + $gan_out + $gan_nov + $gan_dez;
+        
+            $tot_per = $per_jan + $per_fev + $per_mar + $per_abr + $per_mai + $per_jun +
+                       $per_jul + $per_ago + $per_set + $per_out + $per_nov + $per_dez;
+        
+            $tot_luc = $luc_jan + $luc_fev + $luc_mar + $luc_abr + $luc_mai + $luc_jun +
+                       $luc_jul + $luc_ago + $luc_set + $luc_out + $luc_nov + $luc_dez;
+        }
 
-    $tot_gan = $gan_jan + $gan_fev + $gan_mar + $gan_abr + $gan_mai + $gan_jun +
-               $gan_jul + $gan_ago + $gan_set + $gan_out + $gan_nov + $gan_dez;
-
-    $tot_per = $per_jan + $per_fev + $per_mar + $per_abr + $per_mai + $per_jun +
-               $per_jul + $per_ago + $per_set + $per_out + $per_nov + $per_dez;
-
-    $tot_luc = $luc_jan + $luc_fev + $luc_mar + $luc_abr + $luc_mai + $luc_jun +
-               $luc_jul + $luc_ago + $luc_set + $luc_out + $luc_nov + $luc_dez;
 }
 
 ?>

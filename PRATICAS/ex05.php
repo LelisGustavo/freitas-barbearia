@@ -20,22 +20,38 @@ if (isset($_POST['btn_somar'])) {
     $n1 = $_POST['n1'];
     $n2 = $_POST['n2'];
 
-    $somar = $n1 + $n2;
+    if (trim($n1) == '' && trim($n2) == '') {
+        echo "Preencher os campos de SOMA correntamente";
+    } else {
+        $somar = $n1 + $n2;
+    }
 } else if (isset($_POST['btn_subtrair'])) {
     $n3 = $_POST['n3'];
     $n4 = $_POST['n4'];
 
-    $subtrair = $n3 - $n4;
+    if (trim($n3) == '' && trim($n4) == '') {
+        echo "Preencher os campos de SUBTRAIR correntamente";
+    } else {
+        $subtrair = $n3 + $n4;
+    }
 } else if (isset($_POST['btn_multiplicar'])) {
     $n5 = $_POST['n5'];
     $n6 = $_POST['n6'];
 
-    $multiplicar = $n5 * $n6;
+    if (trim($n5) == '' && trim($n6) == '') {
+        echo "Preencher os campos de MULTIPLICAÇÃO correntamente";
+    } else {
+        $multiplicar = $n5 + $n6;
+    }
 } else if (isset($_POST['btn_dividir'])) {
     $n7 = $_POST['n7'];
     $n8 = $_POST['n8'];
 
-    $dividir = $n7 / $n8;
+    if (trim($n7) == '' && trim($n8) == '') {
+        echo "Preencher os campos de DIVISÃO correntamente";
+    } else {
+        $dividir = $n7 + $n8;
+    }
 }
 
 ?>
