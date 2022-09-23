@@ -1,7 +1,7 @@
 <?php
 
 if (isset($_POST['btn_ver'])) {
-    $qtd = $_POST['qtd'];
+    $qtd = trim($_POST['qtd']);
 
     echo "Inicio da repetição <br><br> ";
 

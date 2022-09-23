@@ -29,10 +29,10 @@ CLIENTE (nome vindo da URL), seu valor de investimento foi de (valor vindo da UR
 
 if (isset($_POST['btn_resultado'])) {
 
-    $nome = $_POST['nome'];
-    $invest = $_POST['invest'];
-    $sit = $_POST['sit'];
-    $banco = $_POST['banco'];
+    $nome = trim($_POST['nome']);
+    $invest = trim($_POST['invest']);
+    $sit = strtoupper( trim($_POST['sit']));
+    $banco = strtoupper( trim($_POST['banco']));
 
     if (trim($nome) == '') {
         echo "Preencher o campo NOME";
@@ -56,6 +56,7 @@ if (isset($_POST['btn_resultado'])) {
         $parametro = "nome=$nome&invest=$invest&sit=$sit&banco=$nome_banco";
 
         header("location: ex20.php?$parametro");
+        exit;
     }
 }
 
@@ -72,7 +73,6 @@ if (isset($_POST['btn_resultado'])) {
 </head>
 
 <body>
-
     <form action="ex19.php" method="post">
         <label>Nome: </label>
         <input type="text" name="nome" value="<?= isset($nome) ? $nome : '' ?>">
@@ -94,7 +94,6 @@ if (isset($_POST['btn_resultado'])) {
         <br><br>
         <button name="btn_resultado">Ver resultado</button>
     </form>
-
 </body>
 
 </html>
