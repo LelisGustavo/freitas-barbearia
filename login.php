@@ -10,7 +10,7 @@ include_once '_head.php';
         <div class="row text-center ">
             <div class="col-md-12">
                 <br /><br />
-                <h2> Projeto Barbearia : ACESSO</h2>
+                <h2> Freitas Barbearia : ACESSO</h2>
 
                 <h5>( Faça seu login )</h5>
                 <br />
