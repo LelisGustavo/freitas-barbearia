@@ -21,6 +21,17 @@
                 </ul>
             </li>
             <li>
+                <a href="#"><i class="fa fa-scissors fa-2x"></i> Serviço<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="novo_servico.php">Novo Serviço</a>
+                    </li>
+                    <li>
+                        <a href="consultar_servico.php">Consultar Serviço</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
                 <a href="#"><i class="fa fa-building-o fa-2x"></i> Empresa<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
