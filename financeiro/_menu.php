@@ -21,13 +21,13 @@
                 </ul>
             </li>
             <li>
-                <a href="#"><i class="fa fa-scissors fa-2x"></i> Serviço<span class="fa arrow"></span></a>
+                <a href="#"><i class="fa fa-calendar fa-2x"></i> Agenda<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
-                        <a href="novo_servico.php">Novo Serviço</a>
+                        <a href="novo_horario.php">Agendar Horário</a>
                     </li>
                     <li>
-                        <a href="consultar_servico.php">Consultar Serviço</a>
+                        <a href="consultar_horario.php">Consultar Agenda</a>
                     </li>
                 </ul>
             </li>
@@ -58,9 +58,6 @@
                 <ul class="nav nav-second-level">
                     <li>
                         <a href="novo_estoque.php">Novo Estoque</a>
-                    </li>
-                    <li>
-                        <a href="realizar_movimento_estoque.php">Reazliar Movimento Estoque</a>
                     </li>
                     <li>
                         <a href="consultar_estoque.php">Consultar Estoque</a>

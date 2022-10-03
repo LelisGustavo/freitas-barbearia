@@ -14,38 +14,33 @@ include_once '_head.php';
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Consultar Serviço</h2>
-                        <h5>Consulte todos seus serviços aqui. </h5>
+                        <h2>Consultar Horários</h2>
+                        <h5>Consulte todos seus horários cadastrados aqui. </h5>
 
                     </div>
                 </div>
                 <!-- /. ROW  -->
                 <hr />
-                <div class="form-group" id="divCategoria">
-                    <label>Filtrar nome do serviço</label>
-                    <input type="text" onkeyup="Filtrar(this.value)" class="form-control" name="filtrar_nome_servico" id="filtrar_nome_servico" placeholder="Digite aqui..." value=""> <br>
-                    <center>
-                    <button class="btn btn-info btn-sm">Filtrar</button>
-                </center>
-                </div>
                 
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Serviços cadastrados. Caso deseje alterar, clique no botão
+                        Horários cadastrados. Caso deseje alterar, clique no botão
                     </div>
                     <div class="panel-body">
                         <div class="table-responsive">
                             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                 <thead>
                                     <tr>
-                                        <th>Nome do serviço</th>
+                                        <th>Serviço</th>
+                                        <th>Horário</th>
                                         <th>Ação</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="odd gradeX">
                                         <td>(nome)</td>
-                                        <td><a href="alterar_servico.php" class="btn btn-warning btn-sm">Alterar</a></td>
+                                        <td>(horário)</td>
+                                        <td><a href="alterar_horario.php" class="btn btn-warning btn-sm">Alterar</a></td>
                                     </tr>
 
                                 </tbody>

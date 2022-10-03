@@ -44,11 +44,11 @@ include_once '_head.php';
                 <form action="meus_dados.php" method="post">
                     <div class="form-group">
                         <label>Nome</label>
-                        <input class="form-control" placeholder="Digite seu nome..." name="nome" value="<?= isset($nome) ? $nome : '' ?>" />
+                        <input class="form-control" placeholder="Digite seu nome..." name="nome" />
                     </div>
                     <div class="form-group">
                         <label>E-mail</label>
-                        <input class="form-control" placeholder="Digite seu e-mail..." name="email" value="<?= isset($email) ? $email : '' ?>" />
+                        <input class="form-control" placeholder="Digite seu e-mail..." name="email" />
                     </div>
                     <button type="submit" class="btn btn-success" name="btnGravar">Gravar</button>
                 </form>
