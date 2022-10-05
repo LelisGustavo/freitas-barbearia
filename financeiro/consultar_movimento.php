@@ -36,16 +36,20 @@ include_once '_head.php';
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Data inicial*</label>
-                        <input class="form-control" type="date" />
+                        <input class="form-control" type="date" id="data_inicial" />
                     </div>
                 </div>
 
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Data final*</label>
-                        <input class="form-control" type="date" />
+                        <input class="form-control" type="date" id="data_final" />
                     </div>
                 </div>
+                <center>
+                    <button type="submit" class="btn btn-info" name="btnPesquisar" onclick="return ValidarConsultaPeriodo()">Pesquisar</button>
+                </center>
+                <hr>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="panel panel-default">

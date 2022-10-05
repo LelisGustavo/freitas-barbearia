@@ -1,3 +1,19 @@
+<?php
+
+require_once '../DAO/UsuarioDAO.php';
+
+if (isset($_POST['btnAcessar'])) {
+
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+
+    $objDAO = new UsuarioDAO();
+
+    $ret = $objDAO->ValidarLogin($email,$senha);
+}
+
+?>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -10,6 +26,7 @@ include_once '_head.php';
         <div class="row text-center ">
             <div class="col-md-12">
                 <br /><br />
+                <?php include_once '_msg.php'; ?>
                 <h2> Freitas Barbearia : ACESSO</h2>
 
                 <h5>( Faça seu login )</h5>
@@ -24,19 +41,19 @@ include_once '_head.php';
                         <strong> Entre com seus dados </strong>
                     </div>
                     <div class="panel-body">
-                        <form role="form">
+                        <form method="POST" action="login.php">
                             <br />
                             <div class="form-group input-group">
                                 <span class="input-group-addon">@</i></span>
-                                <input type="text" class="form-control" placeholder="Seu e-mail " />
+                                <input type="text" class="form-control" placeholder="Seu e-mail " name="email" id="email"/>
                             </div>
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                <input type="password" class="form-control" placeholder="Sua senha" />
+                                <input type="password" class="form-control" placeholder="Sua senha" name="senha" id="senha"/>
                             </div>
 
 
-                            <a href="index.html" class="btn btn-primary ">Acessar</a>
+                            <button class="btn btn-primary" name="btnAcessar" onclick="return ValidarLogin()">Acessar</button>
                             <hr />
                             Caso não tenha cadastro, <a href="cadastro.php">Clique aqui! </a>
                         </form>

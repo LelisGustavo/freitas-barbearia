@@ -23,7 +23,7 @@ class Conversao
         return $res;
     }
 
-    public function CalcularFahrenheit($valor)
+    private function CalcularFahrenheit($valor)
     {
 
         $res = ($valor - 32) / 1.8;
@@ -31,7 +31,7 @@ class Conversao
         return $res;
     }
 
-    public function CalcularCelsius($valor)
+    private function CalcularCelsius($valor)
     {
 
 

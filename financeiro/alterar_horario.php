@@ -24,15 +24,15 @@ include_once '_head.php';
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Serviço a ser alterado</label>
-                        <input class="form-control" placeholder="Digite o nome do serviço.. Ex: corte de cabelo" />
+                        <input class="form-control" id="nome_servico" placeholder="Digite o nome do serviço.. Ex: corte de cabelo" />
                     </div>
-                    <button type="submit" class="btn btn-success">Salvar</button>
+                    <button type="submit" class="btn btn-success" onclick="return ValidarHorario()">Salvar</button>
                     <button type="submit" class="btn btn-danger">Excluir</button>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label>Horário</label>
-                        <input class="form-control" type="time" />
+                        <input class="form-control" type="time" id="horario" />
                     </div>
                 </div>
 

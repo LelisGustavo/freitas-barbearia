@@ -23,7 +23,7 @@ include_once '_head.php';
                 <hr />
                 <div class="form-group">
                     <label>Nome da Empresa*</label>
-                    <input class="form-control" placeholder="Digite o nome da empresa.." />
+                    <input class="form-control" id="nome_empresa" placeholder="Digite o nome da empresa.." />
                 </div>
                 <div class="form-group">
                     <label>Telefone</label>
@@ -33,7 +33,7 @@ include_once '_head.php';
                     <label>Endereço</label>
                     <input class="form-control" placeholder="Digite o endereço da empresa (opcional)" />
                 </div>
-                <button type="submit" class="btn btn-success">Salvar</button>
+                <button type="submit" class="btn btn-success" onclick="return ValidarEmpresa()">Salvar</button>
                 <button type="submit" class="btn btn-danger">Excluir</button>
 
             </div>

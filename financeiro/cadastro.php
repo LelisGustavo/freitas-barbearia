@@ -1,3 +1,21 @@
+<?php
+
+require_once '../DAO/UsuarioDAO.php';
+
+if (isset($_POST['btnFinalizar'])) {
+
+    $nome = $_POST['nome'];
+    $email = $_POST['email'];
+    $senha = $_POST['senha'];
+    $repetir_senha = $_POST['repetir_senha'];
+
+    $objDAO = new UsuarioDAO();
+
+    $ret = $objDAO->CriarCadastro($nome, $email, $senha, $repetir_senha);
+}
+
+?>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php
@@ -9,6 +27,7 @@ include_once '_head.php';
         <div class="row text-center  ">
             <div class="col-md-12">
                 <br /><br />
+                <?php include_once '_msg.php'; ?>
                 <h2> Freitas Barbearia : CADASTRO</h2>
 
                 <h5>( Faça seu cadastro )</h5>
@@ -23,27 +42,27 @@ include_once '_head.php';
                         <strong> Preencher todos os campos </strong>
                     </div>
                     <div class="panel-body">
-                        <form role="form">
+                        <form method="post" action="cadastro.php">
                             <br />
                             <div class="form-group input-group">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
-                                <input type="text" class="form-control" placeholder="Seu nome" />
-                            </div>
-                            
-                            <div class="form-group input-group">
-                                <span class="input-group-addon">@</span>
-                                <input type="text" class="form-control" placeholder="Seu e-mail" />
-                            </div>
-                            <div class="form-group input-group">
-                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                <input type="password" class="form-control" placeholder="Crie uma senha (mínimo 6 caracteres)" />
-                            </div>
-                            <div class="form-group input-group">
-                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
-                                <input type="password" class="form-control" placeholder="Repita senha criada" />
+                                <input type="text" class="form-control" placeholder="Seu nome" name="nome" id="nome"/>
                             </div>
 
-                            <a href="index.html" class="btn btn-success ">Finalizar cadastro</a>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon">@</span>
+                                <input type="text" class="form-control" placeholder="Seu e-mail" name="email" id="email"/>
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                <input type="password" class="form-control" placeholder="Crie uma senha (mínimo 6 caracteres)" name="senha" id="senha"/>
+                            </div>
+                            <div class="form-group input-group">
+                                <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                                <input type="password" class="form-control" placeholder="Repita senha criada" name="repetir_senha" id="repetir_senha"/>
+                            </div>
+
+                            <button class="btn btn-success" name="btnFinalizar" onclick="return ValidarCadastro()">Finalizar cadastro</button>
                             <hr />
                             Já possui cadastro ? <a href="login.php">Clique aqui!</a>
                         </form>

@@ -23,21 +23,21 @@ include_once '_head.php';
                 <hr />
                 <div class="form-group">
                     <label>Nome do banco*</label>
-                    <input class="form-control" placeholder="Digite o nome do banco.." />
+                    <input class="form-control" id="nome_banco" placeholder="Digite o nome do banco.." />
                 </div>
                 <div class="form-group">
                     <label>Agência*</label>
-                    <input class="form-control" placeholder="Digite a agência" />
+                    <input class="form-control" id="agencia" placeholder="Digite a agência" />
                 </div>
                 <div class="form-group">
                     <label>Número da conta*</label>
-                    <input class="form-control" placeholder="Digite o número da conta" />
+                    <input class="form-control" id="numero_conta" placeholder="Digite o número da conta" />
                 </div>
                 <div class="form-group">
                     <label>Saldo*</label>
-                    <input class="form-control" placeholder="Digite o saldo da conta" />
+                    <input class="form-control" id="saldo" placeholder="Digite o saldo da conta" />
                 </div>
-                <button type="submit" class="btn btn-success">Salvar</button>
+                <button type="submit" class="btn btn-success" onclick="return ValidarConta()">Salvar</button>
                 <button type="submit" class="btn btn-danger">Excluir</button>
 
             </div>

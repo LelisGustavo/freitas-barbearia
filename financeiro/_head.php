@@ -19,4 +19,6 @@
     <script src="assets/js/jquery.metisMenu.js"></script>
     <!-- CUSTOM SCRIPTS -->
     <script src="assets/js/custom.js"></script>
+    <!-- Validações em JS do Teamplate -->
+    <script src="assets/js/validacao.js"></script>
 </head>

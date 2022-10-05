@@ -43,14 +43,14 @@ include_once '_head.php';
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Serviço a ser realizado*</label>
-                            <input class="form-control" placeholder="Digite o nome do serviço.. Ex: corte de cabelo" name="nome_servico" maxlength="35" />
+                            <input class="form-control" placeholder="Digite o nome do serviço.. Ex: corte de cabelo" name="nome_servico" id="nome_servico" maxlength="35" />
                         </div>
-                        <button type="submit" class="btn btn-success" name="btnGravar">Gravar</button>
+                        <button type="submit" class="btn btn-success" name="btnGravar" onclick="return ValidarHorario()">Gravar</button>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Horário*</label>
-                            <input class="form-control" type="time" name="horario" placeholder="Coloque o horário a ser agendado" />
+                            <input class="form-control" type="time" name="horario" id="horario" placeholder="Coloque o horário a ser agendado" />
                         </div>
                     </div>
 

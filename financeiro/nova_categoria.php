@@ -42,9 +42,9 @@ include_once '_head.php';
                 <form action="nova_categoria.php" method="post">
                     <div class="form-group">
                         <label>Nome da categoria</label>
-                        <input class="form-control" placeholder="Digite o nome da categoria.. Ex: conta de luz" name="nome_categoria" maxlength="35"/>
+                        <input class="form-control" placeholder="Digite o nome da categoria.. Ex: conta de luz" name="nome_categoria" id="nome_categoria" maxlength="35"/>
                     </div>
-                    <button type="submit" class="btn btn-success" name="btnGravar">Gravar</button>
+                    <button type="submit" class="btn btn-success" name="btnGravar" onclick="return ValidarCategoria()">Gravar</button>
                 </form>
             </div>
             <!-- /. PAGE INNER  -->

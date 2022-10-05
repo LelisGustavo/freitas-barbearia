@@ -42,7 +42,7 @@ include_once '_head.php';
                 <form action="nova_empresa.php" method="post">
                     <div class="form-group">
                         <label>Nome da empresa*</label>
-                        <input class="form-control" placeholder="Digite o nome da empresa.." name="nome_empresa" maxlength="35" />
+                        <input class="form-control" placeholder="Digite o nome da empresa.." name="nome_empresa" id="nome_empresa" maxlength="35" />
                     </div>
                     <div class="form-group">
                         <label>Telefone</label>
@@ -52,7 +52,7 @@ include_once '_head.php';
                         <label>Endereço</label>
                         <input class="form-control" placeholder="Digite o endereço da empresa (opcional)" name="endereco" maxlength="50" />
                     </div>
-                    <button type="submit" class="btn btn-success" name="btnGravar">Gravar</button>
+                    <button type="submit" class="btn btn-success" name="btnGravar" onclick="return ValidarEmpresa()">Gravar</button>
                 </form>
             </div>
             <!-- /. PAGE INNER  -->

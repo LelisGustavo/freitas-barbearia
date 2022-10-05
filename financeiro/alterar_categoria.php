@@ -23,9 +23,9 @@ include_once '_head.php';
                 <hr />
                 <div class="form-group">
                     <label>Nome da Categoria</label>
-                    <input class="form-control" placeholder="Digite o nome da categoria.. Ex: conta de luz" />
+                    <input class="form-control" id="nome_categoria" placeholder="Digite o nome da categoria.. Ex: conta de luz" />
                 </div>
-                <button type="submit" class="btn btn-success">Salvar</button>
+                <button type="submit" class="btn btn-success" onclick="return ValidarCategoria()">Salvar</button>
                 <button type="submit" class="btn btn-danger">Excluir</button>
 
             </div>

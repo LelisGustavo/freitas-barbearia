@@ -56,19 +56,19 @@ include_once '_head.php';
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Data*</label>
-                            <input class="form-control" type="date" name="data" />
+                            <input class="form-control" type="date" name="data" id="data" />
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Produto*</label>
-                            <input class="form-control" type="text" placeholder="Digite o nome do produto.. Ex: Gel para cabelo" name="nome_produto" maxlength="40">
+                            <input class="form-control" type="text" placeholder="Digite o nome do produto.. Ex: Gel para cabelo" name="nome_produto" id="nome_produto" maxlength="40">
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label>Quantidade*</label>
-                            <input class="form-control" placeholder="Digite a quantidade de produto em estoque" type="number" name="quantidade" >
+                            <input class="form-control" placeholder="Digite a quantidade de produto em estoque" type="number" name="quantidade" id="quantidade">
                         </div>
                     </div>
 
@@ -77,7 +77,7 @@ include_once '_head.php';
                             <label>Observação (opcional)</label>
                             <textarea class="form-control" rows="3" name="obs"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-success" name="btnGravar">Finalizar lançamento</button>
+                        <button type="submit" class="btn btn-success" name="btnGravar" onclick="return ValidarEstoque()">Finalizar lançamento</button>
                     </div>
                 </form>
             </div>

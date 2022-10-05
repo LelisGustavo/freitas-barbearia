@@ -44,13 +44,13 @@ include_once '_head.php';
                 <form action="meus_dados.php" method="post">
                     <div class="form-group">
                         <label>Nome</label>
-                        <input class="form-control" placeholder="Digite seu nome..." name="nome" />
+                        <input class="form-control" placeholder="Digite seu nome..." name="nome" id="nome"/>
                     </div>
                     <div class="form-group">
                         <label>E-mail</label>
-                        <input class="form-control" placeholder="Digite seu e-mail..." name="email" />
+                        <input class="form-control" placeholder="Digite seu e-mail..." name="email" id="email"/>
                     </div>
-                    <button type="submit" class="btn btn-success" name="btnGravar">Gravar</button>
+                    <button type="submit" class="btn btn-success" onclick="return ValidarMeusDados()" name="btnGravar">Gravar</button>
                 </form>
 
             </div>

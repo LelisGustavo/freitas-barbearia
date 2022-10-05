@@ -14,7 +14,7 @@ if (isset($_POST['btnGravar'])) {
 
     $objDAO = new MovimentoDAO();
 
-    $ret = $objDAO->RealizarrMovimento($tipo_movimento, $nome_categoria, $data, $nome_empresa, $valor, $conta_banco, $obs);
+    $ret = $objDAO->RealizarMovimento($tipo_movimento, $nome_categoria, $data, $nome_empresa, $valor, $conta_banco, $obs);
 }
 
 ?>
@@ -56,11 +56,11 @@ include_once '_head.php';
                         </div>
                         <div class="form-group">
                             <label>Data*</label>
-                            <input class="form-control" type="date" name="data" />
+                            <input class="form-control" type="date" name="data" id="data" />
                         </div>
                         <div class="form-group">
                             <label>Valor*</label>
-                            <input class="form-control" name="valor" placeholder="Digite o valor do movimento" />
+                            <input class="form-control" name="valor" id="valor" placeholder="Digite o valor do movimento" />
                         </div>
 
                     </div>
@@ -90,7 +90,7 @@ include_once '_head.php';
                             <label>Observação (opcional)</label>
                             <textarea class="form-control" name="obs" rows="3"></textarea>
                         </div>
-                        <button type="submit" class="btn btn-success" name="btnGravar">Finalizar lançamento</button>
+                        <button type="submit" class="btn btn-success" name="btnGravar" onclick="return ValidarMovimento()">Finalizar lançamento</button>
                     </div>
                 </form>
             </div>
