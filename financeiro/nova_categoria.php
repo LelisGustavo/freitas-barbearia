@@ -9,7 +9,6 @@ if (isset($_POST['btnGravar'])) {
     $objDAO = new CategoriaDAO();
 
     $ret = $objDAO->CadastrarCategoria($nome_categoria);
-
 }
 
 ?>
@@ -42,7 +41,7 @@ include_once '_head.php';
                 <form action="nova_categoria.php" method="post">
                     <div class="form-group" id="div_categoria_1">
                         <label>Nome da categoria</label>
-                        <input class="form-control" placeholder="Digite o nome da categoria.. Ex: conta de luz" name="nome_categoria" id="nome_categoria" maxlength="35"/>
+                        <input class="form-control" placeholder="Digite o nome da categoria.. Ex: conta de luz" name="nome_categoria" id="nome_categoria" maxlength="35" />
                     </div>
                     <button type="submit" class="btn btn-success" name="btnGravar" onclick="return ValidarCategoria()">Gravar</button>
                 </form>
@@ -52,7 +51,7 @@ include_once '_head.php';
         <!-- /. PAGE WRAPPER  -->
     </div>
 
-
+    <?php include_once '_footer.php'; ?>
 
 </body>
 

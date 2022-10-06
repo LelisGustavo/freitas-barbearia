@@ -98,6 +98,8 @@ include_once '_head.php';
         </div>
     </div>
 
+    <?php include_once '_footer.php'; ?>
+
 </body>
 
 </html>

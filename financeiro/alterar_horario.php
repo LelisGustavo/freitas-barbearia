@@ -21,7 +21,7 @@ include_once '_head.php';
                 </div>
                 <!-- /. ROW  -->
                 <hr />
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-group" id="div_horario_1">
                         <label>Serviço a ser alterado*</label>
                         <input class="form-control" id="nome_servico" placeholder="Digite o nome do serviço.. Ex: corte de cabelo" />
@@ -29,18 +29,26 @@ include_once '_head.php';
                     <button type="submit" class="btn btn-success" onclick="return ValidarHorario()">Salvar</button>
                     <button type="submit" class="btn btn-danger">Excluir</button>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-group" id="div_horario_2">
                         <label>Horário*</label>
                         <input class="form-control" type="time" id="horario" />
                     </div>
                 </div>
+                <div class="col-md-4">
+                        <div class="form-group" id="div_horario_3">
+                            <label>Data*</label>
+                            <input class="form-control" type="date" name="data" id="data" placeholder="Coloque a data a ser agendada" />
+                        </div>
+                    </div>
 
             </div>
             <!-- /. PAGE INNER  -->
         </div>
         <!-- /. PAGE WRAPPER  -->
     </div>
+
+    <?php include_once '_footer.php'; ?>
 
 </body>
 

@@ -86,7 +86,7 @@ include_once '_head.php';
         <!-- /. PAGE WRAPPER  -->
     </div>
 
-
+    <?php include_once '_footer.php'; ?>
 
 </body>
 

@@ -122,6 +122,15 @@ function ValidarHorario() {
   } else {
     $("#div_horario_2").removeClass("has-error").addClass("has-success");
   }
+
+  if ($("#data").val().trim() == "") {
+    alert("Preencher o campo DATA");
+    $("#data").focus();
+    $("#div_horario_3").addClass("has-error");
+    return false;
+  } else {
+    $("#div_horario_3").removeClass("has-error").addClass("has-success");
+  }
 }
 
 // Função para validar as páginas de Empresa
