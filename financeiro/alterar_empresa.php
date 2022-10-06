@@ -21,7 +21,7 @@ include_once '_head.php';
                 </div>
                 <!-- /. ROW  -->
                 <hr />
-                <div class="form-group">
+                <div class="form-group" id="div_empresa_1">
                     <label>Nome da Empresa*</label>
                     <input class="form-control" id="nome_empresa" placeholder="Digite o nome da empresa.." />
                 </div>

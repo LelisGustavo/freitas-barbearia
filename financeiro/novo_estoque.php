@@ -44,7 +44,7 @@ include_once '_head.php';
                 <form action="novo_estoque.php" method="post">
                     <div class="col-md-6">
 
-                        <div class="form-group">
+                        <div class="form-group" id="div_estoque_1">
                             <label>Tipo do movimento*</label>
                             <select class="form-control" name="tipo_movimento" id="tipo_movimento">
                                 <option value="">Selecione</option>
@@ -54,19 +54,19 @@ include_once '_head.php';
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="form-group">
+                        <div class="form-group" id="div_estoque_2">
                             <label>Data*</label>
                             <input class="form-control" type="date" name="data" id="data" />
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="form-group">
+                        <div class="form-group" id="div_estoque_3">
                             <label>Produto*</label>
                             <input class="form-control" type="text" placeholder="Digite o nome do produto.. Ex: Gel para cabelo" name="nome_produto" id="nome_produto" maxlength="40">
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="form-group">
+                        <div class="form-group" id="div_estoque_4">
                             <label>Quantidade*</label>
                             <input class="form-control" placeholder="Digite a quantidade de produto em estoque" type="number" name="quantidade" id="quantidade">
                         </div>

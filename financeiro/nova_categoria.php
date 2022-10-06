@@ -40,7 +40,7 @@ include_once '_head.php';
                 <hr />
 
                 <form action="nova_categoria.php" method="post">
-                    <div class="form-group">
+                    <div class="form-group" id="div_categoria_1">
                         <label>Nome da categoria</label>
                         <input class="form-control" placeholder="Digite o nome da categoria.. Ex: conta de luz" name="nome_categoria" id="nome_categoria" maxlength="35"/>
                     </div>

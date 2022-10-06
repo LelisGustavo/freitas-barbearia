@@ -43,11 +43,11 @@ include_once '_head.php';
                     <div class="panel-body">
                         <form method="POST" action="login.php">
                             <br />
-                            <div class="form-group input-group">
+                            <div class="form-group input-group" id="div_login_1">
                                 <span class="input-group-addon">@</i></span>
                                 <input type="text" class="form-control" placeholder="Seu e-mail " name="email" id="email"/>
                             </div>
-                            <div class="form-group input-group">
+                            <div class="form-group input-group" id="div_login_2">
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                                 <input type="password" class="form-control" placeholder="Sua senha" name="senha" id="senha"/>
                             </div>

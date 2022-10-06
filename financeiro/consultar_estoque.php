@@ -24,7 +24,7 @@ include_once '_head.php';
 
                 <div class="col-md-12">
 
-                    <div class="form-group">
+                    <div class="form-group" id="div_estoque_1">
                         <label>Produto*</label>
                         <select class="form-control" name="nome_produto" id="nome_produto">
                             <option value="">Selecione</option>
@@ -33,13 +33,13 @@ include_once '_head.php';
                 </div>
 
                 <div class="col-md-6">
-                    <div class="form-group">
+                    <div class="form-group" id="div_estoque_2">
                         <label>Data inicial*</label>
                         <input type="date" class="form-control" placeholder="Coloque a data do movimento" name="data_inicial" id="data_inicial" />
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="form-group">
+                    <div class="form-group" id="div_estoque_3">
                         <label>Data final*</label>
                         <input type="date" class="form-control" placeholder="Coloque a data do movimento" name="data_final" id="data_final" />
                     </div>

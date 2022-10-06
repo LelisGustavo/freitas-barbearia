@@ -10,6 +10,6 @@
     </div>
     <div style="color: white;
 padding: 15px 50px 5px 50px;
-float: right;
-font-size: 14px;"> Bem-Vindo, Gustavo <br> Dúvidas ligue para: (19) 99357-6996 </div>
+float: left;
+font-size: 14px;"> Bem-Vindo, Gustavo <br> Dúvidas mande uma mensagem para: <b>(19) 99357-6996</b> <i class="fa-brands fa-whatsapp"></i><br> </div>
 </nav>

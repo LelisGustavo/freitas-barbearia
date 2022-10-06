@@ -44,20 +44,20 @@ include_once '_head.php';
                     <div class="panel-body">
                         <form method="post" action="cadastro.php">
                             <br />
-                            <div class="form-group input-group">
+                            <div class="form-group input-group" id="div_cadastro_1">
                                 <span class="input-group-addon"><i class="fa fa-user"></i></span>
                                 <input type="text" class="form-control" placeholder="Seu nome" name="nome" id="nome"/>
                             </div>
 
-                            <div class="form-group input-group">
+                            <div class="form-group input-group" id="div_cadastro_2">
                                 <span class="input-group-addon">@</span>
                                 <input type="text" class="form-control" placeholder="Seu e-mail" name="email" id="email"/>
                             </div>
-                            <div class="form-group input-group">
+                            <div class="form-group input-group" id="div_cadastro_3">
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                                 <input type="password" class="form-control" placeholder="Crie uma senha (mínimo 6 caracteres)" name="senha" id="senha"/>
                             </div>
-                            <div class="form-group input-group">
+                            <div class="form-group input-group" id="div_cadastro_4">
                                 <span class="input-group-addon"><i class="fa fa-lock"></i></span>
                                 <input type="password" class="form-control" placeholder="Repita senha criada" name="repetir_senha" id="repetir_senha"/>
                             </div>

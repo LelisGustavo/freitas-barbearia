@@ -21,7 +21,7 @@ include_once '_head.php';
                 </div>
                 <!-- /. ROW  -->
                 <hr />
-                <div class="form-group">
+                <div class="form-group" id="div_categoria_1">
                     <label>Nome da Categoria</label>
                     <input class="form-control" id="nome_categoria" placeholder="Digite o nome da categoria.. Ex: conta de luz" />
                 </div>

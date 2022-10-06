@@ -42,19 +42,19 @@ include_once '_head.php';
                 <!-- /. ROW  -->
                 <hr />
                 <form action="nova_conta.php" method="post">
-                    <div class="form-group">
+                    <div class="form-group" id="div_conta_1">
                         <label>Nome do banco*</label>
                         <input class="form-control" name="nome_banco" id="nome_banco" placeholder="Digite o nome do banco.." maxlength="20" />
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" id="div_conta_2">
                         <label>Agência*</label>
                         <input class="form-control" name="agencia" id="agencia" placeholder="Digite a agência" maxlength="8" />
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" id="div_conta_3">
                         <label>Número da conta*</label>
                         <input class="form-control" name="numero_conta" id="numero_conta" placeholder="Digite o número da conta" maxlength="12" />
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" id="div_conta_4">
                         <label>Saldo*</label>
                         <input class="form-control" name="saldo" id="saldo" placeholder="Digite o saldo da conta" maxlength="10" />
                     </div>

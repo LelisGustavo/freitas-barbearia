@@ -21,4 +21,6 @@
     <script src="assets/js/custom.js"></script>
     <!-- Validações em JS do Teamplate -->
     <script src="assets/js/validacao.js"></script>
+    <!-- Fonte Awesome -->
+    <script src="https://kit.fontawesome.com/116461f365.js" crossorigin="anonymous"></script>
 </head>

@@ -34,14 +34,14 @@ include_once '_head.php';
                 </div>
 
                 <div class="col-md-6">
-                    <div class="form-group">
+                    <div class="form-group" id="div_movimento_1">
                         <label>Data inicial*</label>
                         <input class="form-control" type="date" id="data_inicial" />
                     </div>
                 </div>
 
                 <div class="col-md-6">
-                    <div class="form-group">
+                    <div class="form-group" id="div_movimento_2">
                         <label>Data final*</label>
                         <input class="form-control" type="date" id="data_final" />
                     </div>

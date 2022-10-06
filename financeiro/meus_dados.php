@@ -42,11 +42,11 @@ include_once '_head.php';
                 <hr />
 
                 <form action="meus_dados.php" method="post">
-                    <div class="form-group">
+                    <div class="form-group" id="div_dados_1">
                         <label>Nome</label>
                         <input class="form-control" placeholder="Digite seu nome..." name="nome" id="nome"/>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group" id="div_dados_2">
                         <label>E-mail</label>
                         <input class="form-control" placeholder="Digite seu e-mail..." name="email" id="email"/>
                     </div>

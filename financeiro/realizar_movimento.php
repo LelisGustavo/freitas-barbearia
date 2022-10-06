@@ -46,7 +46,7 @@ include_once '_head.php';
                 <form action="realizar_movimento.php" method="post">
                     <div class="col-md-6">
 
-                        <div class="form-group">
+                        <div class="form-group" id="div_movimento_1">
                             <label>Tipo do movimento*</label>
                             <select class="form-control" name="tipo_movimento" id="tipo_movimento">
                                 <option value="">Selecione</option>
@@ -54,30 +54,30 @@ include_once '_head.php';
                                 <option value="2">Saída</option>
                             </select>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" id="div_movimento_2">
                             <label>Data*</label>
                             <input class="form-control" type="date" name="data" id="data" />
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" id="div_movimento_3">
                             <label>Valor*</label>
                             <input class="form-control" name="valor" id="valor" placeholder="Digite o valor do movimento" />
                         </div>
 
                     </div>
                     <div class="col-md-6">
-                        <div class="form-group">
+                        <div class="form-group" id="div_movimento_4">
                             <label>Categoria*</label>
                             <select class="form-control" name="nome_categoria" id="nome_categoria">
                                 <option value="">Selecione</option>
                             </select>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" id="div_movimento_5">
                             <label>Empresa*</label>
                             <select class="form-control" name="nome_empresa" id="nome_empresa">
                                 <option value="">Selecione</option>
                             </select>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" id="div_movimento_6">
                             <label>Conta*</label>
                             <select class="form-control" name="conta_banco" id="conta_banco">
                                 <option value="">Selecione</option>

@@ -22,16 +22,16 @@ include_once '_head.php';
                 <!-- /. ROW  -->
                 <hr />
                 <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Serviço a ser alterado</label>
+                    <div class="form-group" id="div_horario_1">
+                        <label>Serviço a ser alterado*</label>
                         <input class="form-control" id="nome_servico" placeholder="Digite o nome do serviço.. Ex: corte de cabelo" />
                     </div>
                     <button type="submit" class="btn btn-success" onclick="return ValidarHorario()">Salvar</button>
                     <button type="submit" class="btn btn-danger">Excluir</button>
                 </div>
                 <div class="col-md-6">
-                    <div class="form-group">
-                        <label>Horário</label>
+                    <div class="form-group" id="div_horario_2">
+                        <label>Horário*</label>
                         <input class="form-control" type="time" id="horario" />
                     </div>
                 </div>
