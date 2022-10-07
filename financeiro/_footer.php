@@ -10,6 +10,6 @@
     </div>
     <div style="color: white;
 padding: 15px 50px 5px 50px;
-float: right;
-font-size: 14px;"> Developed by Gustavo Lélis <br> Copyright 2022 ©- All rights reserved  </div>
+float: left;
+font-size: 14px;"> System Developed by Gustavo Lélis <br> Copyright 2022 © All rights reserved  </div>
 </nav>
