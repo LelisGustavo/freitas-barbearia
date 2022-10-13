@@ -7,10 +7,11 @@ if (isset($_POST['btnGravar'])) {
     $nome_servico = $_POST['nome_servico'];
     $horario = $_POST['horario'];
     $data = $_POST['data'];
+    $obs = $_POST['obs'];
 
     $objDAO = new AgendaDAO();
 
-    $ret = $objDAO->CadastrarHorario($nome_servico, $horario, $data);
+    $ret = $objDAO->CadastrarHorario($nome_servico, $horario, $data, $obs);
 }
 
 ?>
