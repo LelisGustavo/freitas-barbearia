@@ -20,7 +20,7 @@ class CategoriaDAO extends Conexao
         $comando_sql = 'INSERT INTO tb_categoria
                         (nome_categoria, id_usuario)
                         VALUES
-                        (?, ?)';
+                        (?, ?)'; // 2 Values
 
         // 3º Passo: Criar um OBJ que será configurado e levado no BD para ser executado
         $sql = new PDOStatement();

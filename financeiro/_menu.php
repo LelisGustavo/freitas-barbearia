@@ -10,17 +10,6 @@
                 <a href="meus_dados.php"><i class="fa fa-user fa-2x"></i> Meus Dados</a>
             </li>
             <li>
-                <a href="#"><i class="fa fa-th-list fa-2x"></i> Categoria<span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="nova_categoria.php">Nova Categoria</a>
-                    </li>
-                    <li>
-                        <a href="consultar_categoria.php">Consultar Categoria</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
                 <a href="#"><i class="fa fa-calendar fa-2x"></i> Agenda<span class="fa arrow"></span></a>
                 <ul class="nav nav-second-level">
                     <li>
@@ -28,6 +17,28 @@
                     </li>
                     <li>
                         <a href="consultar_horario.php">Consultar Agenda</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-dropbox fa-2x"></i> Estoque<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="novo_estoque.php">Novo Estoque</a>
+                    </li>
+                    <li>
+                        <a href="consultar_estoque.php">Consultar Estoque</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-th-list fa-2x"></i> Categoria<span class="fa arrow"></span></a>
+                <ul class="nav nav-second-level">
+                    <li>
+                        <a href="nova_categoria.php">Nova Categoria</a>
+                    </li>
+                    <li>
+                        <a href="consultar_categoria.php">Consultar Categoria</a>
                     </li>
                 </ul>
             </li>
@@ -50,17 +61,6 @@
                     </li>
                     <li>
                         <a href="consultar_conta.php">Consultar Conta</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-dropbox fa-2x"></i> Estoque<span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="novo_estoque.php">Novo Estoque</a>
-                    </li>
-                    <li>
-                        <a href="consultar_estoque.php">Consultar Estoque</a>
                     </li>
                 </ul>
             </li>

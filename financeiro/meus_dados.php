@@ -2,15 +2,21 @@
 
 require_once '../DAO/UsuarioDAO.php';
 
+$objDAO = new UsuarioDAO();
+
 if (isset($_POST['btnGravar'])) {
 
     $nome = $_POST['nome'];
     $email = $_POST['email'];
 
-    $objDAO = new UsuarioDAO();
-
     $ret = $objDAO->GravarMeusDados($nome, $email);
 }
+
+$dados = $objDAO->CarregarMeusDados();
+
+// echo '<pre>';
+// print_r($dados);
+// echo '</pre>';
 
 ?>
 
@@ -44,11 +50,11 @@ include_once '_head.php';
                 <form action="meus_dados.php" method="post">
                     <div class="form-group" id="div_dados_1">
                         <label>Nome</label>
-                        <input class="form-control" placeholder="Digite seu nome..." name="nome" id="nome"/>
+                        <input class="form-control" placeholder="Digite seu nome..." name="nome" id="nome" value="<?= $dados[0]['nome_usuario'] ?>"/>
                     </div>
                     <div class="form-group" id="div_dados_2">
                         <label>E-mail</label>
-                        <input class="form-control" placeholder="Digite seu e-mail..." name="email" id="email"/>
+                        <input class="form-control" placeholder="Digite seu e-mail..." name="email" id="email" value="<?= $dados[0]['email_usuario'] ?>"/>
                     </div>
                     <button type="submit" class="btn btn-success" onclick="return ValidarMeusDados()" name="btnGravar">Gravar</button>
                 </form>

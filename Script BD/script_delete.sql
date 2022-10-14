@@ -1,4 +1,4 @@
 -- DELETE (Deletar)
 
-DELETE FROM tb_usuario
-	WHERE id_usuario = 2;
+DELETE FROM tb_estoque
+	WHERE id_estoque = 6;

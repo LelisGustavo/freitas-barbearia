@@ -5,14 +5,15 @@ require_once '../DAO/EstoqueDAO.php';
 if (isset($_POST['btnGravar'])) {
 
     $tipo_movimento = $_POST['tipo_movimento'];
-    $data = $_POST['data'];
     $nome_produto = $_POST['nome_produto'];
-    $quantidade = $_POST['quantidade'];
     $obs = $_POST['obs'];
+    $data = $_POST['data'];
+    $quantidade = $_POST['quantidade'];
+
 
     $objDAO = new EstoqueDAO();
 
-    $ret = $objDAO->RealizarMovimentoEstoque($tipo_movimento, $data, $quantidade, $nome_produto, $obs);
+    $ret = $objDAO->RealizarMovimentoEstoque($tipo_movimento, $nome_produto, $obs, $data, $quantidade);
 }
 
 ?>
