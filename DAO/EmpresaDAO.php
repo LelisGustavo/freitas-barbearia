@@ -39,4 +39,27 @@ class EmpresaDAO extends Conexao
             return -1;
         }
     }
+
+    public function ConsultarEmpresa()
+    {
+
+        $conexao = parent::retornarConexao();
+
+        $comando_sql = 'SELECT id_empresa,
+                               nome_empresa,
+                               telefone_empresa,
+                               endereco_empresa
+                        FROM tb_empresa
+                        WHERE id_usuario = ?';
+
+        $sql = $conexao->prepare($comando_sql);
+
+        $sql->bindValue(1, UtilDAO::CodigoLogado());
+
+        $sql->setFetchMode(PDO::FETCH_ASSOC);
+
+        $sql->execute();
+
+        return $sql->fetchAll();
+    }
 }

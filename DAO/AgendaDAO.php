@@ -40,4 +40,28 @@ class AgendaDAO extends Conexao
             return -1;
         }
     }
+
+    public function ConsultarHorario()
+    {
+
+        $conexao = parent::retornarConexao();
+
+        $comando_sql = 'SELECT id_agenda,
+                               nome_servico,
+                               horario_agenda,
+                               DATE_FORMAT(data_agenda, "%d/%m/%Y") AS data_agenda
+                        FROM tb_agenda
+                        WHERE id_usuario = ?';
+
+        $sql = $conexao->prepare($comando_sql);
+
+        $sql->bindValue(1, UtilDAO::CodigoLogado());
+
+        $sql->setFetchMode(PDO::FETCH_ASSOC);
+        
+        $sql->execute();
+
+        return $sql->fetchAll();
+
+    }
 }

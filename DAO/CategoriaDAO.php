@@ -43,4 +43,52 @@ class CategoriaDAO extends Conexao
             return -1;
         }
     }
+
+    public function ConsultarCategoria()
+    {
+
+        $conexao = parent::retornarConexao();
+
+        $comando_sql = 'SELECT id_categoria,
+                               nome_categoria
+                        FROM tb_categoria
+                        WHERE id_usuario = ?';
+
+        $sql = new PDOStatement();
+
+        $sql = $conexao->prepare($comando_sql);
+
+        $sql->bindValue(1, UtilDAO::CodigoLogado());
+
+        $sql->setFetchMode(PDO::FETCH_ASSOC);
+
+        $sql->execute();
+
+        return $sql->fetchAll();
+    }
+
+    public function FiltrarCategoria($filtrar_nome_categoria)
+    {
+
+        $conexao = parent::retornarConexao();
+
+        $comando_sql = 'SELECT id_categoria,
+                               nome_categoria
+                        FROM tb_categoria
+                        WHERE id_usuario = ?
+                        AND nome_categoria LIKE ?';
+
+        $sql = new PDOStatement();
+
+        $sql = $conexao->prepare($comando_sql);
+
+        $sql->bindValue(1, UtilDAO::CodigoLogado());
+        $sql->bindValue(2, '%' . $filtrar_nome_categoria . '%');
+
+        $sql->setFetchMode(PDO::FETCH_ASSOC);
+
+        $sql->execute();
+
+        return $sql->fetchAll();
+    }
 }

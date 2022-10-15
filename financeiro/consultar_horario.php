@@ -1,3 +1,17 @@
+<?php
+
+require_once '../DAO/AgendaDAO.php';
+
+$objDAO = new AgendaDAO();
+
+$horarios = $objDAO->ConsultarHorario();
+
+// echo '<pre>';
+// print_r($horarios);
+// echo '</pre>';
+
+?>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php
@@ -21,7 +35,7 @@ include_once '_head.php';
                 </div>
                 <!-- /. ROW  -->
                 <hr />
-                
+
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         Horários cadastrados. Caso deseje alterar, clique no botão
@@ -33,16 +47,19 @@ include_once '_head.php';
                                     <tr>
                                         <th>Serviço</th>
                                         <th>Horário</th>
+                                        <th>Data</th>
                                         <th>Ação</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="odd gradeX">
-                                        <td>(nome)</td>
-                                        <td>(horário)</td>
-                                        <td><a href="alterar_horario.php" class="btn btn-warning btn-sm">Alterar</a></td>
-                                    </tr>
-
+                                    <?php for ($i = 0; $i < count($horarios); $i++) { ?>
+                                        <tr class="odd gradeX">
+                                            <td><?= $horarios[$i]['nome_servico'] ?></td>
+                                            <td><?= $horarios[$i]['horario_agenda'] ?></td>
+                                            <td><?= $horarios[$i]['data_agenda'] ?></td>
+                                            <td><a href="alterar_horario.php?cod=<?= $horarios[$i]['id_agenda'] ?>" class="btn btn-warning btn-sm">Alterar</a></td>
+                                        </tr>
+                                    <?php } ?>
                                 </tbody>
                             </table>
                         </div>

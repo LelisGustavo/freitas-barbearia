@@ -40,4 +40,28 @@ class ContaDAO extends Conexao
             return -1;
         }
     }
+
+    public function ConsultarConta()
+    {
+
+        $conexao = parent::retornarConexao();
+
+        $comando_sql = 'SELECT id_conta,
+                               banco_conta,
+                               agencia_conta,
+                               numero_conta,
+                               saldo_conta
+                        FROM tb_conta
+                        WHERE id_usuario = ?';
+
+        $sql = $conexao->prepare($comando_sql);
+
+        $sql->bindValue(1, UtilDAO::CodigoLogado());
+
+        $sql->setFetchMode(PDO::FETCH_ASSOC);
+
+        $sql->execute();
+
+        return $sql->fetchAll();
+    }
 }
