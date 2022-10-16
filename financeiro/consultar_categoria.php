@@ -41,6 +41,7 @@ include_once '_head.php';
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
+                        <?php include_once '_msg.php'; ?>
                         <h2>Consultar Categoria</h2>
                         <h5>Consulte todas suas categorias aqui. </h5>
 
@@ -74,10 +75,10 @@ include_once '_head.php';
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php for ($i = 0; $i < count($categorias); $i++) { ?>
+                                            <?php foreach ($categorias as $item) { ?>
                                                 <tr class="odd gradeX">
-                                                    <td><?= $categorias[$i]['nome_categoria'] ?></td>
-                                                    <td><a href="alterar_categoria.php?cod=<?= $categorias[$i]['id_categoria'] ?>" class="btn btn-warning btn-sm">Alterar</a></td>
+                                                    <td><?= $item['nome_categoria'] ?></td>
+                                                    <td><a href="alterar_categoria.php?cod=<?= $item['id_categoria'] ?>" class="btn btn-warning btn-sm">Alterar</a></td>
                                                 </tr>
                                             <?php } ?>
                                         </tbody>

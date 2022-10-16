@@ -67,6 +67,101 @@ class CategoriaDAO extends Conexao
         return $sql->fetchAll();
     }
 
+    public function DetalharCategoria($id_categoria)
+    {
+
+        $conexao = parent::retornarConexao();
+
+        $comando_sql = 'SELECT id_categoria,
+                               nome_categoria
+                        FROM tb_categoria
+                        WHERE id_categoria = ?
+                        AND id_usuario = ?';
+
+        $sql = new PDOStatement();
+
+        $sql = $conexao->prepare($comando_sql);
+
+        $sql->bindValue(1, $id_categoria);
+        $sql->bindValue(2, UtilDAO::CodigoLogado());
+
+        $sql->setFetchMode(PDO::FETCH_ASSOC);
+
+        $sql->execute();
+
+        return $sql->fetchAll();
+    }
+
+    public function AlterarCategoria($nome_categoria, $id_categoria)
+    {
+
+        if (trim($nome_categoria) == '' || $id_categoria == '') {
+
+            return 0;
+        }
+
+        $conexao = parent::retornarConexao();
+
+        $comando_sql = 'UPDATE tb_categoria
+                        SET nome_categoria = ?
+                        WHERE id_categoria = ?
+                        AND id_usuario = ?';
+
+        $sql = new PDOStatement();
+
+        $sql = $conexao->prepare($comando_sql);
+
+        $sql->bindValue(1, $nome_categoria);
+        $sql->bindValue(2, $id_categoria);
+        $sql->bindValue(3, UtilDAO::CodigoLogado());
+
+        try {
+
+            $sql->execute();
+
+            return 1;
+        } catch (Exception $ex) {
+
+            echo $ex->getMessage();
+
+            return -1;
+        }
+    }
+
+    public function ExcluirCategoria($id_categoria)
+    {
+
+        if (trim($id_categoria) == '') {
+            return 0;
+        }
+
+        $conexao = parent::retornarConexao();
+
+        $comando_sql = 'DELETE
+                        FROM tb_categoria
+                        WHERE id_categoria = ?
+                        AND id_usuario = ?';
+
+        $sql = new PDOStatement();
+
+        $sql = $conexao->prepare($comando_sql);
+
+        $sql->bindValue(1, $id_categoria);
+        $sql->bindValue(2, UtilDAO::CodigoLogado());
+
+        try {
+
+            $sql->execute();
+
+            return 1;
+        } catch (Exception $ex) {
+
+            echo $ex->getMessage();
+
+            return -4;
+        }
+    } 
+
     public function FiltrarCategoria($filtrar_nome_categoria)
     {
 
@@ -91,4 +186,5 @@ class CategoriaDAO extends Conexao
 
         return $sql->fetchAll();
     }
+     
 }

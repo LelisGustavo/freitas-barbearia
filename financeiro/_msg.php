@@ -1,5 +1,10 @@
 <?php
 
+if (isset($_GET['ret'])) {
+
+  $ret = $_GET['ret'];
+}
+
 if (isset($ret)) {
 
   switch ($ret) {
@@ -23,10 +28,15 @@ if (isset($ret)) {
                   A senha deverá conter no mínimo 6 caracteres!
                 </div>';
       break;
-      case -3:
-        echo '<div class="alert alert-danger">
+    case -3:
+      echo '<div class="alert alert-danger">
                     A senha e o Repetir Senha não conferem!
                   </div>';
-        break;
+      break;
+    case -4:
+      echo '<div class="alert alert-danger">
+                      O registro não poderá ser excluído, pois está em uso!
+                    </div>';
+      break;
   }
 }

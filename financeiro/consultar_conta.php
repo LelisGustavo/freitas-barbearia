@@ -2,9 +2,42 @@
 
 require_once '../DAO/ContaDAO.php';
 
+$opcao = '';
+
 $objDAO = new ContaDAO();
 
-$contas = $objDAO->ConsultarConta();
+if (isset($_POST['btnPesquisar'])) {
+
+    $opcao = $_POST['filtro'];
+
+    $contas = $objDAO->FiltrarConta($opcao);
+
+    switch ($opcao) {
+
+        case 'banco_conta':
+            $filtrar = $_POST['filtrar'];
+            $contas = $objDAO->FiltrarConta($filtrar);
+            break;
+
+        case 'agencia_conta':
+            $filtrar = $_POST['filtrar'];
+            $contas = $objDAO->FiltrarAgencia($filtrar);
+            break;
+
+        case 'numero_conta':
+            $filtrar = $_POST['filtrar'];
+            $contas = $objDAO->FiltrarNumero($filtrar);
+            break;
+
+        case 'saldo_conta':
+            $filtrar = $_POST['filtrar'];
+            $contas = $objDAO->FiltrarSaldo($filtrar);
+            break;
+    }
+} else {
+
+    $contas = $objDAO->ConsultarConta();
+}
 
 // echo '<pre>';
 // print_r($contas);
@@ -28,6 +61,7 @@ include_once '_head.php';
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
+                        <?php include_once '_msg.php'; ?>
                         <h2>Consultar Contas</h2>
                         <h5>Consulte todas suas contas aqui. </h5>
 
@@ -35,23 +69,25 @@ include_once '_head.php';
                 </div>
                 <!-- /. ROW  -->
                 <hr />
-                <div class="form-group" id="divConta">
+                <form action="consultar_conta.php" method="post">
+                    <div class="form-group" id="divConta">
+                        <center>
+                            <label>Procurar por:</label>
+                            <select class="btn btn-default dropdown-toggle" name="filtro">
+                                <option value="">Selecione a opção</option>
+                                <option value="banco_conta" <?= $opcao == 'banco_conta' ? 'selected' : '' ?>>Banco</option>
+                                <option value="agencia_conta" <?= $opcao == 'agencia_conta' ? 'selected' : '' ?>>Agência</option>
+                                <option value="numero_conta" <?= $opcao == 'numero_conta' ? 'selected' : '' ?>>Número da conta</option>
+                                <option value="saldo_conta" <?= $opcao == 'saldo_conta' ? 'selected' : '' ?>>Saldo</option>
+                            </select>
+                        </center>
+                        <br>
+                        <input class="form-control" name="filtrar" id="filtrar" placeholder="Digite aqui..." value="<?= isset($filtrar) ? $filtrar : '' ?>" />
+                    </div>
                     <center>
-                        <label>Procurar por:</label>
-                        <select class="btn btn-default dropdown-toggle" name="filtro">
-                            <option value="">Selecione a opção</option>
-                            <option value="conta_banco">Banco</option>
-                            <option value="agencia_conta">Agência</option>
-                            <option value="numero_conta">Número da conta</option>
-                            <option value="saldo_conta">Saldo</option>
-                        </select>
+                        <button type="submit" onclick="return ValidarConta()" name="btnPesquisar" class="btn btn-info">Pesquisar</button>
                     </center>
-                    <br>
-                    <input class="form-control" name="filtrar" id="filtrar" placeholder="Digite aqui..." value="">
-                </div>
-                <center>
-                    <button type="submit" onclick="return ValidarConta()" name="btnPesquisar" class="btn btn-info">Pesquisar</button>
-                </center>
+                </form>
                 <br>
 
                 <div class="row">
@@ -73,13 +109,13 @@ include_once '_head.php';
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php for ($i = 0; $i < count($contas); $i++) { ?>
+                                            <?php foreach ($contas as $item) { ?>
                                                 <tr class="odd gradeX">
-                                                    <td><?= $contas[$i]['banco_conta'] ?></td>
-                                                    <td><?= $contas[$i]['agencia_conta'] ?></td>
-                                                    <td><?= $contas[$i]['numero_conta'] ?></td>
-                                                    <td><?= $contas[$i]['saldo_conta'] ?></td>
-                                                    <td><a href="alterar_conta.php?cod=<?= $contas[$i]['id_conta'] ?>" class="btn btn-warning btn-sm">Alterar</a></td>
+                                                    <td><?= $item['banco_conta'] ?></td>
+                                                    <td><?= $item['agencia_conta'] ?></td>
+                                                    <td><?= $item['numero_conta'] ?></td>
+                                                    <td>R$ <?= $item['saldo_conta'] ?></td>
+                                                    <td><a href="alterar_conta.php?cod=<?= $item['id_conta'] ?>" class="btn btn-warning btn-sm">Alterar</a></td>
                                                 </tr>
                                             <?php } ?>
                                         </tbody>
