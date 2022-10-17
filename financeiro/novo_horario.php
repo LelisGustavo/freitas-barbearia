@@ -52,13 +52,13 @@ include_once '_head.php';
                     <div class="col-md-4">
                         <div class="form-group" id="div_horario_2">
                             <label>Horário*</label>
-                            <input class="form-control" type="time" name="horario" id="horario" placeholder="Coloque o horário a ser agendado" />
+                            <input class="form-control" type="time" name="horario" id="horario" value="<?= UtilDAO::HoraAtual() ?>"/>
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group" id="div_horario_3">
                             <label>Data*</label>
-                            <input class="form-control" type="date" name="data" id="data" placeholder="Coloque a data a ser agendada" />
+                            <input class="form-control" type="date" name="data" id="data" value="<?= UtilDAO::DataAtual() ?>" />
                         </div>
                     </div>
                     <div class="col-md-12">

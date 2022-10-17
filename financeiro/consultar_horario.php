@@ -28,6 +28,7 @@ include_once '_head.php';
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
+                        <?php include_once '_msg.php'; ?>
                         <h2>Consultar Horários</h2>
                         <h5>Consulte todos seus horários cadastrados aqui. </h5>
 
@@ -52,12 +53,12 @@ include_once '_head.php';
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php for ($i = 0; $i < count($horarios); $i++) { ?>
+                                    <?php foreach ($horarios as $item) { ?>
                                         <tr class="odd gradeX">
-                                            <td><?= $horarios[$i]['nome_servico'] ?></td>
-                                            <td><?= $horarios[$i]['horario_agenda'] ?></td>
-                                            <td><?= $horarios[$i]['data_agenda'] ?></td>
-                                            <td><a href="alterar_horario.php?cod=<?= $horarios[$i]['id_agenda'] ?>" class="btn btn-warning btn-sm">Alterar</a></td>
+                                            <td><?= $item['nome_servico'] ?></td>
+                                            <td><?= $item['horario_agenda'] ?></td>
+                                            <td><?= $item['data_agenda'] ?></td>
+                                            <td><a href="alterar_horario.php?cod=<?= $item['id_agenda'] ?>" class="btn btn-warning btn-sm">Alterar</a></td>
                                         </tr>
                                     <?php } ?>
                                 </tbody>

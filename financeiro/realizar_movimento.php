@@ -1,6 +1,13 @@
 <?php
 
 require_once '../DAO/MovimentoDAO.php';
+require_once '../DAO/CategoriaDAO.php';
+require_once '../DAO/EmpresaDAO.php';
+require_once '../DAO/ContaDAO.php';
+
+$objDAO_categoria =  new CategoriaDAO();
+$objDAO_empresa = new EmpresaDAO();
+$objDAO_conta = new ContaDAO();
 
 if (isset($_POST['btnGravar'])) {
 
@@ -16,6 +23,10 @@ if (isset($_POST['btnGravar'])) {
 
     $ret = $objDAO->RealizarMovimento($tipo_movimento, $nome_categoria, $data, $nome_empresa, $valor, $conta_banco, $obs);
 }
+
+$categorias = $objDAO_categoria->ConsultarCategoria();
+$empresas = $objDAO_empresa->ConsultarEmpresa();
+$contas = $objDAO_conta->ConsultarConta();
 
 ?>
 
@@ -56,7 +67,7 @@ include_once '_head.php';
                         </div>
                         <div class="form-group" id="div_movimento_2">
                             <label>Data*</label>
-                            <input class="form-control" type="date" name="data" id="data" />
+                            <input class="form-control" type="date" name="data" id="data" value="<?= UtilDAO::DataAtual() ?>"/>
                         </div>
                         <div class="form-group" id="div_movimento_3">
                             <label>Valor*</label>
@@ -69,18 +80,36 @@ include_once '_head.php';
                             <label>Categoria*</label>
                             <select class="form-control" name="nome_categoria" id="nome_categoria">
                                 <option value="">Selecione</option>
+                                <?php foreach ($categorias as $item) { ?>
+                                    <option value="<?= $item['id_categoria'] ?>">
+                                        <?= $item['nome_categoria'] ?>
+                                    </option>
+                                <?php } ?>
                             </select>
                         </div>
                         <div class="form-group" id="div_movimento_5">
                             <label>Empresa*</label>
                             <select class="form-control" name="nome_empresa" id="nome_empresa">
                                 <option value="">Selecione</option>
+                                <?php foreach ($empresas as $item) { ?>
+                                    <option value="<?= $item['id_empresa'] ?>">
+                                        <?= $item['nome_empresa'] ?>
+                                    </option>
+                                <?php } ?>
                             </select>
                         </div>
                         <div class="form-group" id="div_movimento_6">
                             <label>Conta*</label>
                             <select class="form-control" name="conta_banco" id="conta_banco">
                                 <option value="">Selecione</option>
+                                <?php foreach ($contas as $item) { ?>
+                                    <option value="<?= $item['id_conta'] ?>">
+                                        <?= 'Banco: ' . $item['banco_conta'] .
+                                            ' / Agência: ' . $item['agencia_conta'] .
+                                            ' / Núm. Conta: ' . $item['numero_conta'] .
+                                            ' - Saldo R$ ' . $item['saldo_conta'] ?>
+                                    </option>
+                                <?php } ?>
                             </select>
                         </div>
                     </div>

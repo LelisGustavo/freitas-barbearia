@@ -64,4 +64,106 @@ class AgendaDAO extends Conexao
         return $sql->fetchAll();
 
     }
+
+    public function DetalharAgenda($id_agenda)
+    {
+
+        $conexao = parent::retornarConexao();
+
+        $comando_sql = 'SELECT id_agenda,
+                               nome_servico,
+                               horario_agenda,
+                               data_agenda
+                        FROM tb_agenda
+                        WHERE id_agenda = ?
+                        AND id_usuario = ?';
+
+        $sql = new PDOStatement();
+
+        $sql = $conexao->prepare($comando_sql);
+
+        $sql->bindValue(1, $id_agenda);
+        $sql->bindValue(2, UtilDAO::CodigoLogado());
+
+        $sql->setFetchMode(PDO::FETCH_ASSOC);
+
+        $sql->execute();
+
+        return $sql->fetchAll();
+    }
+
+    public function AlterarAgenda($id_agenda, $nome_servico, $horario, $data)
+    {
+
+        if (trim($id_agenda) == '' || trim($nome_servico) == '' || trim($horario) == '' ||trim($data) == '') {
+
+            return 0;
+        }
+
+        $conexao = parent::retornarConexao();
+
+        $comando_sql = 'UPDATE tb_agenda
+                        SET nome_servico = ?,
+                            horario_agenda = ?,
+                            data_agenda = ?
+                        WHERE id_agenda = ?
+                        AND id_usuario = ?';
+
+        $sql = new PDOStatement();
+
+        $sql = $conexao->prepare($comando_sql);
+
+        $sql->bindValue(1, $nome_servico);
+        $sql->bindValue(2, $horario);
+        $sql->bindValue(3, $data);
+        $sql->bindValue(4, $id_agenda);
+        $sql->bindValue(5, UtilDAO::CodigoLogado());
+
+        try {
+
+            $sql->execute();
+
+            return 1;
+        } catch (Exception $ex) {
+
+            echo $ex->getMessage();
+
+            return -1;
+        }
+    }
+
+    public function ExcluirAgenda($id_agenda)
+    {
+
+        if (trim($id_agenda) == '') {
+
+            return 0;
+        }
+
+        $conexao = parent::retornarConexao();
+
+        $comando_sql = 'DELETE
+                        FROM tb_agenda
+                        WHERE id_agenda = ?
+                        AND id_usuario = ?';
+
+        $sql = new PDOStatement();
+
+        $sql = $conexao->prepare($comando_sql);
+
+        $sql->bindValue(1, $id_agenda);
+        $sql->bindValue(2, UtilDAO::CodigoLogado());
+
+        try {
+
+            $sql->execute();
+
+            return 1;
+        } catch (Exception $ex) {
+
+            echo $ex->getMessage();
+
+            return -4;
+        }
+    }
 }
