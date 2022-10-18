@@ -36,7 +36,7 @@ class MovimentoDAO extends Conexao
         $conexao->beginTransaction();
 
         try {
-            
+
             //Inserção na tb_movimento
             $sql->execute();
 
@@ -45,7 +45,6 @@ class MovimentoDAO extends Conexao
                 $comando_sql = 'UPDATE tb_conta
                                 SET saldo_conta = saldo_conta + ?
                                 WHERE id_conta = ?';
-
             } elseif ($tipo_movimento == 2) {
 
                 $comando_sql = 'UPDATE tb_conta
@@ -72,5 +71,59 @@ class MovimentoDAO extends Conexao
 
             return -1;
         }
+    }
+
+    public function FiltrarMovimento($tipo_movimento, $data_inicial, $data_final)
+    {
+
+        if (trim($data_inicial) == '' || trim($data_final) == '') {
+
+            return 0;
+        }
+
+        $conexao = parent::retornarConexao();
+
+        $comando_sql = 'SELECT tipo_movimento,
+                                DATE_FORMAT(data_movimento, "%d/%m/%Y") AS data_movimento,
+                                valor_movimento,
+                                nome_categoria,
+                                nome_empresa,
+                                banco_conta,
+                                numero_conta,
+                                agencia_conta,
+                                obs_movimento
+                        FROM tb_movimento
+                        INNER JOIN tb_categoria
+                            ON tb_categoria.id_categoria = tb_movimento.id_categoria
+                        INNER JOIN tb_empresa
+                            ON tb_empresa.id_empresa = tb_movimento.id_empresa
+                        INNER JOIN tb_conta
+                            ON tb_conta.id_conta = tb_movimento.id_conta
+                        WHERE tb_movimento.id_usuario = ?
+                        AND tb_movimento.data_movimento BETWEEN ? AND ?';
+
+        if ($tipo_movimento != 0) {
+
+            $comando_sql = $comando_sql . 'AND tipo_movimento = ?';
+        }
+
+        $sql = new PDOStatement();
+
+        $sql = $conexao->prepare($comando_sql);
+
+        $sql->bindValue(1, UtilDAO::CodigoLogado());
+        $sql->bindValue(2, $data_inicial);
+        $sql->bindValue(3, $data_final);
+
+        if ($tipo_movimento != 0) {
+
+            $sql->bindValue(4, $tipo_movimento);
+        }
+
+        $sql->setFetchMode(PDO::FETCH_ASSOC);
+
+        $sql->execute();
+
+        return $sql->fetchAll();
     }
 }

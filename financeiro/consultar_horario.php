@@ -49,6 +49,7 @@ include_once '_head.php';
                                         <th>Serviço</th>
                                         <th>Horário</th>
                                         <th>Data</th>
+                                        <th>Observação</th>
                                         <th>Ação</th>
                                     </tr>
                                 </thead>
@@ -58,6 +59,7 @@ include_once '_head.php';
                                             <td><?= $item['nome_servico'] ?></td>
                                             <td><?= $item['horario_agenda'] ?></td>
                                             <td><?= $item['data_agenda'] ?></td>
+                                            <td><?= $item['obs_agenda'] ?></td>
                                             <td><a href="alterar_horario.php?cod=<?= $item['id_agenda'] ?>" class="btn btn-warning btn-sm">Alterar</a></td>
                                         </tr>
                                     <?php } ?>

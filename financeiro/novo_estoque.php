@@ -57,7 +57,7 @@ include_once '_head.php';
                     <div class="col-md-6">
                         <div class="form-group" id="div_estoque_2">
                             <label>Data*</label>
-                            <input class="form-control" type="date" name="data" id="data" />
+                            <input class="form-control" type="date" name="data" id="data" value="<?= UtilDAO::DataAtual() ?>" />
                         </div>
                     </div>
                     <div class="col-md-6">

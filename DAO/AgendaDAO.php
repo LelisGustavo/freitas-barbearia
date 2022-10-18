@@ -27,7 +27,7 @@ class AgendaDAO extends Conexao
         $sql->bindValue(1, $nome_servico);
         $sql->bindValue(2, $horario);
         $sql->bindValue(3, $data);
-        $sql->bindValue(4, $obs);
+        $sql->bindValue(4, $obs == '' ? null : $obs);
         $sql->bindValue(5, UtilDAO::CodigoLogado());
 
         try {
@@ -49,9 +49,12 @@ class AgendaDAO extends Conexao
         $comando_sql = 'SELECT id_agenda,
                                nome_servico,
                                horario_agenda,
-                               DATE_FORMAT(data_agenda, "%d/%m/%Y") AS data_agenda
+                               DATE_FORMAT(data_agenda, "%d/%m/%Y") AS data_agenda,
+                               obs_agenda
                         FROM tb_agenda
                         WHERE id_usuario = ?';
+
+        $sql = new PDOStatement();
 
         $sql = $conexao->prepare($comando_sql);
 
@@ -73,7 +76,8 @@ class AgendaDAO extends Conexao
         $comando_sql = 'SELECT id_agenda,
                                nome_servico,
                                horario_agenda,
-                               data_agenda
+                               data_agenda,
+                               obs_agenda
                         FROM tb_agenda
                         WHERE id_agenda = ?
                         AND id_usuario = ?';
@@ -92,10 +96,10 @@ class AgendaDAO extends Conexao
         return $sql->fetchAll();
     }
 
-    public function AlterarAgenda($id_agenda, $nome_servico, $horario, $data)
+    public function AlterarAgenda($id_agenda, $nome_servico, $horario, $data, $obs)
     {
 
-        if (trim($id_agenda) == '' || trim($nome_servico) == '' || trim($horario) == '' ||trim($data) == '') {
+        if (trim($id_agenda) == '' || trim($nome_servico) == '' || trim($horario) == '' || trim($data) == '') {
 
             return 0;
         }
@@ -105,7 +109,8 @@ class AgendaDAO extends Conexao
         $comando_sql = 'UPDATE tb_agenda
                         SET nome_servico = ?,
                             horario_agenda = ?,
-                            data_agenda = ?
+                            data_agenda = ?,
+                            obs_agenda = ?
                         WHERE id_agenda = ?
                         AND id_usuario = ?';
 
@@ -117,7 +122,8 @@ class AgendaDAO extends Conexao
         $sql->bindValue(2, $horario);
         $sql->bindValue(3, $data);
         $sql->bindValue(4, $id_agenda);
-        $sql->bindValue(5, UtilDAO::CodigoLogado());
+        $sql->bindValue(5, $obs);
+        $sql->bindValue(6, UtilDAO::CodigoLogado());
 
         try {
 
