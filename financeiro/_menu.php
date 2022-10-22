@@ -27,6 +27,9 @@
                         <a href="novo_estoque.php">Novo Estoque</a>
                     </li>
                     <li>
+                        <a href="realizar_movimento_estoque.php">Realizar Movimento Estoque</a>
+                    </li>
+                    <li>
                         <a href="consultar_estoque.php">Consultar Estoque</a>
                     </li>
                 </ul>

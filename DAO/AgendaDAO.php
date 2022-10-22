@@ -76,7 +76,7 @@ class AgendaDAO extends Conexao
         $comando_sql = 'SELECT id_agenda,
                                nome_servico,
                                horario_agenda,
-                               data_agenda,
+                               DATE_FORMAT(data_agenda, "%d/%m/%Y") AS data_agenda,
                                obs_agenda
                         FROM tb_agenda
                         WHERE id_agenda = ?
@@ -109,7 +109,7 @@ class AgendaDAO extends Conexao
         $comando_sql = 'UPDATE tb_agenda
                         SET nome_servico = ?,
                             horario_agenda = ?,
-                            data_agenda = ?,
+                            DATE_FORMAT(data_agenda, "%d/%m/%Y") AS data_agenda,
                             obs_agenda = ?
                         WHERE id_agenda = ?
                         AND id_usuario = ?';
@@ -121,8 +121,8 @@ class AgendaDAO extends Conexao
         $sql->bindValue(1, $nome_servico);
         $sql->bindValue(2, $horario);
         $sql->bindValue(3, $data);
-        $sql->bindValue(4, $id_agenda);
-        $sql->bindValue(5, $obs);
+        $sql->bindValue(4, $obs);
+        $sql->bindValue(5, $id_agenda);
         $sql->bindValue(6, UtilDAO::CodigoLogado());
 
         try {

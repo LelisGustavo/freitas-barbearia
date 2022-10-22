@@ -63,7 +63,7 @@ class EstoqueDAO extends Conexao
         }
     }
 
-    public function ConsultarEstoque()
+    public function FiltrarEstoque($id_estoque, $data_inicial, $data_final)
     {
 
         $conexao = parent::retornarConexao();
@@ -73,7 +73,37 @@ class EstoqueDAO extends Conexao
                                DATE_FORMAT(data_estoque, "%d/%m/%Y") AS data_estoque,
                                quantidade_estoque,
                                obs_estoque,
-                               id_estoque
+                        FROM tb_estoque
+                        WHERE id_estoque = ?
+                        AND tb_estoque.data_estoque BETWEEN ? AND ?
+                        AND id_usuario = ?';
+
+        $sql = new PDOStatement();
+
+        $sql = $conexao->prepare($comando_sql);
+
+        $sql->bindValue(1, $id_estoque);
+        $sql->bindValue(2, $$data_inicial);
+        $sql->bindValue(3, $$data_final);
+        $sql->bindValue(4, UtilDAO::CodigoLogado());
+
+        $sql->setFetchMode(PDO::FETCH_ASSOC);
+
+        $sql->execute();
+
+        return $sql->fetchAll();
+    }
+
+    public function ConsultarEstoque()
+    {
+
+        $conexao = parent::retornarConexao();
+
+        $comando_sql = 'SELECT DATE_FORMAT(data_estoque, "%d/%m/%Y") AS data_estoque,
+                               produto_estoque,
+                               tipo_movimento,
+                               quantidade_estoque,
+                               obs_estoque
                         FROM tb_estoque
                         WHERE id_usuario = ?';
 
@@ -90,46 +120,37 @@ class EstoqueDAO extends Conexao
         return $sql->fetchAll();
     }
 
-    public function DetalharEstoque($id_estoque)
+    public function CadastrarEstoque($nome_produto)
     {
+
+        if (trim($nome_produto) == '') {
+
+            return 0;
+        }
 
         $conexao = parent::retornarConexao();
 
-        $comando_sql = 'SELECT id_estoque,
-                               tipo_movimento,
-                               produto_estoque,
-                               obs_estoque,
-                               data_estoque,
-                               quanditade_estoque
-                        FROM tb_estoque
-                        WHERE id_estoque = ?
-                        AND id_usuario = ?';
-
-        $sql = new PDOStatement();
+        $comando_sql = 'INSERT INTO tb_estoque
+                        (produto_estoque, id_usuario)
+                        VALUES
+                        (?, ?)';
 
         $sql = $conexao->prepare($comando_sql);
 
-        $sql->bindValue(1, $id_estoque);
+        $sql->bindValue(1, $nome_produto);
         $sql->bindValue(2, UtilDAO::CodigoLogado());
+        
+        try {
 
-        $sql->setFetchMode(PDO::FETCH_ASSOC);
+            $sql->execute();
 
-        $sql->execute();
+            return 1;
+        } catch (Exception $ex) {
 
-        return $sql->fetchAll();
+            echo $ex->getMessage();
+
+            return -1;
+        }
     }
 
-    // public function AlterarEstoque()
-    // {
-
-
-
-    // }
-
-    // public function ExcluirEstoque()
-    // [
-
-
-
-    // ]
 }
