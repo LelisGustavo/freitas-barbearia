@@ -7,16 +7,15 @@ $objDAO = new EstoqueDAO();
 if (isset($_POST['btnGravar'])) {
 
     $tipo_movimento = $_POST['tipo_movimento'];
-    $nome_produto = $_POST['nome_produto'];
-    $obs = $_POST['obs'];
-    $data = $_POST['data'];
     $quantidade = $_POST['quantidade'];
+    $nome_produto = $_POST['nome_produto'];
 
-    $ret = $objDAO->RealizarMovimentoEstoque($tipo_movimento, $nome_produto, $obs, $data, $quantidade);
+    $ret = $objDAO->RealizarMovimentoEstoque($tipo_movimento, $quantidade, $nome_produto);
+} else {
+
+    $objDAO = new EstoqueDAO();
+    $estoques = $objDAO->ConsultarEstoque();
 }
-
-$estoques = $objDAO->ConsultarEstoque();
-
 ?>
 
 <!DOCTYPE html>
@@ -43,9 +42,9 @@ include_once '_head.php';
                 </div>
                 <!-- /. ROW  -->
                 <hr />
-                <form action="novo_estoque.php" method="post">
-                    <div class="col-md-6">
-
+                <form action="realizar_movimento_estoque.php" method="post">
+                    <div class="col-md-4">
+                        <input type="hidden" value="<?= $id_estoque ?>">
                         <div class="form-group" id="div_estoque_1">
                             <label>Tipo do movimento*</label>
                             <select class="form-control" name="tipo_movimento" id="tipo_movimento">
@@ -54,15 +53,11 @@ include_once '_head.php';
                                 <option value="2">Saída</option>
                             </select>
                         </div>
+                        <button type="submit" class="btn btn-success" name="btnGravar" onclick="return ValidarEstoque()">Finalizar lançamento</button>
                     </div>
-                    <div class="col-md-6">
+
+                    <div class="col-md-4">
                         <div class="form-group" id="div_estoque_2">
-                            <label>Data*</label>
-                            <input class="form-control" type="date" name="data" id="data" value="<?= UtilDAO::DataAtual() ?>" />
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-group" id="div_estoque_3">
                             <label>Produto*</label>
                             <select class="form-control" name="nome_produto" id="nome_produto">
                                 <option value="">Selecione</option>
@@ -72,20 +67,13 @@ include_once '_head.php';
                             </select>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="form-group" id="div_estoque_4">
+                    <div class="col-md-4">
+                        <div class="form-group" id="div_estoque_3">
                             <label>Quantidade*</label>
-                            <input class="form-control" placeholder="Digite a quantidade de produto em estoque" type="number" name="quantidade" id="quantidade">
+                            <input class="form-control" placeholder="Quantidade de produto em estoque" type="number" name="quantidade" id="quantidade">
                         </div>
                     </div>
 
-                    <div class="col-md-12">
-                        <div class="form-group">
-                            <label>Observação (opcional)</label>
-                            <textarea class="form-control" rows="3" name="obs"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-success" name="btnGravar" onclick="return ValidarEstoque()">Finalizar lançamento</button>
-                    </div>
                 </form>
             </div>
             <!-- /. PAGE INNER  -->

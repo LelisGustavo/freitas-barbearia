@@ -195,31 +195,22 @@ function ValidarEstoque() {
     $("#div_estoque_1").removeClass("has-error").addClass("has-success");
   }
 
-  if ($("#data").val().trim() == "") {
-    alert("Preencher o campo DATA");
-    $("#data").focus();
+  if ($("#nome_produto").val().trim() == "") {
+    alert("Preencher o campo PRODUTO");
+    $("#nome_produto").focus();
     $("#div_estoque_2").addClass("has-error");
     return false;
   } else {
     $("#div_estoque_2").removeClass("has-error").addClass("has-success");
   }
 
-  if ($("#nome_produto").val().trim() == "") {
-    alert("Preencher o campo PRODUTO");
-    $("#nome_produto").focus();
+  if ($("#quantidade").val().trim() == "") {
+    alert("Preencher o campo QUANTIDADE");
+    $("#quantidade").focus();
     $("#div_estoque_3").addClass("has-error");
     return false;
   } else {
     $("#div_estoque_3").removeClass("has-error").addClass("has-success");
-  }
-
-  if ($("#quantidade").val().trim() == "") {
-    alert("Preencher o campo QUANTIDADE");
-    $("#quantidade").focus();
-    $("#div_estoque_4").addClass("has-error");
-    return false;
-  } else {
-    $("#div_estoque_4").removeClass("has-error").addClass("has-success");
   }
 }
 
@@ -249,6 +240,15 @@ function ValidarConsultaPeriodoEstoque() {
     return false;
   } else {
     $("#div_estoque_3").removeClass("has-error").addClass("has-success");
+  }
+
+  if ($("#data").val().trim() == "") {
+    alert("Preencher o campo DATA");
+    $("#data").focus();
+    $("#div_estoque_4").addClass("has-error");
+    return false;
+  } else {
+    $("#div_estoque_4").removeClass("has-error").addClass("has-success");
   }
 }
 

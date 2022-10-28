@@ -71,7 +71,7 @@ include_once '_head.php';
                     </center>
                 </form>
                 <hr>
-                <?php if (isset($movimentos) && is_array($movimentos) && count($movimentos)) { ?>
+                <?php if (isset($movimentos) && is_array($movimentos) && count($movimentos) > 0) { ?>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="panel panel-default">

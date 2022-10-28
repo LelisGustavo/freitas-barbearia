@@ -4,11 +4,11 @@ require_once '../DAO/EstoqueDAO.php';
 
 if (isset($_POST['btnGravar'])) {
 
-   $nome_produto = $_POST['nome_produto'];
+    $nome_produto = $_POST['nome_produto'];
 
-   $objDAO = new EstoqueDAO();
+    $objDAO = new EstoqueDAO();
 
-   $ret = $objDAO->CadastrarEstoque($nome_produto);
+    $ret = $objDAO->CadastrarEstoque($nome_produto);
 }
 
 ?>
@@ -39,11 +39,15 @@ include_once '_head.php';
                 <hr />
 
                 <form action="novo_estoque.php" method="post">
-                    <div class="form-group" id="div_estoque_1">
-                        <label>Nome da produto*</label>
-                        <input class="form-control" placeholder="Digite o nome do produto.. Ex: gel para cabelo" name="nome_produto" id="nome_produto" maxlength="35" />
+                    <div class="col-md-12">
+                        <div class="form-group" id="div_estoque_1">
+                            <label>Nome da produto*</label>
+                            <input class="form-control" placeholder="Digite o nome do produto.. Ex: gel para cabelo" name="nome_produto" id="nome_produto" maxlength="35" />
+                        </div>
                     </div>
-                    <button type="submit" class="btn btn-success" name="btnGravar" onclick="return ValidarConsultaPeriodoEstoque()">Gravar</button>
+                    <div class="col-md-12">
+                        <button type="submit" class="btn btn-success" name="btnGravar" onclick="return ValidarConsultaPeriodoEstoque()">Gravar</button>
+                    </div>
                 </form>
             </div>
             <!-- /. PAGE INNER  -->
