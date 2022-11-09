@@ -1,3 +1,14 @@
+<?php
+
+require_once '../DAO/UtilDAO.php';
+
+if (isset($_GET['close']) && $_GET['close'] == '1') {
+
+    UtilDAO::Deslogar();
+}
+
+?>
+
 <nav class="navbar-default navbar-side" role="navigation">
     <div class="sidebar-collapse">
         <ul class="nav" id="main-menu">
@@ -17,20 +28,6 @@
                     </li>
                     <li>
                         <a href="consultar_horario.php">Consultar Agenda</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="#"><i class="fa fa-dropbox fa-2x"></i> Estoque<span class="fa arrow"></span></a>
-                <ul class="nav nav-second-level">
-                    <li>
-                        <a href="novo_estoque.php">Novo Estoque</a>
-                    </li>
-                    <li>
-                        <a href="realizar_movimento_estoque.php">Realizar Movimento Estoque</a>
-                    </li>
-                    <li>
-                        <a href="consultar_estoque.php">Consultar Estoque</a>
                     </li>
                 </ul>
             </li>
@@ -79,7 +76,7 @@
                 </ul>
             </li>
             <li>
-                <a class="active-menu" href="#"><i class="fa fa-power-off fa-2x"></i>Sair</a>
+                <a class="active-menu" href="_menu.php?close=1"><i class="fa fa-power-off fa-2x"></i>Sair</a>
             </li>
 
         </ul>

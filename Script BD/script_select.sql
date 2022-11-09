@@ -13,3 +13,5 @@ SELECT * FROM tb_conta;
 SELECT * FROM tb_estoque;
 
 SELECT * FROM tb_movimento;
+
+SELECT * FROM tb_movimento_estoque;

@@ -71,6 +71,11 @@ class AgendaDAO extends Conexao
     public function DetalharAgenda($id_agenda)
     {
 
+        if ($id_agenda == '') {
+
+            return 0;
+        }
+
         $conexao = parent::retornarConexao();
 
         $comando_sql = 'SELECT id_agenda,
@@ -107,9 +112,9 @@ class AgendaDAO extends Conexao
         $conexao = parent::retornarConexao();
 
         $comando_sql = 'UPDATE tb_agenda
-                        SET nome_servico = ?,
-                            horario_agenda = ?,
-                            DATE_FORMAT(data_agenda, "%d/%m/%Y") AS data_agenda,
+                        SET nome_servico = ?, 
+                            horario_agenda = ?, 
+                            data_agenda = ?, 
                             obs_agenda = ?
                         WHERE id_agenda = ?
                         AND id_usuario = ?';

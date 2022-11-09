@@ -1,5 +1,8 @@
 <?php
 
+require_once '../DAO/UtilDAO.php';
+UtilDAO::VerificarLogado();
+
 require_once '../DAO/EmpresaDAO.php';
 
 $objDAO = new EmpresaDAO();

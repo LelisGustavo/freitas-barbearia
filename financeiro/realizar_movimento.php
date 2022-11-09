@@ -1,5 +1,8 @@
 <?php
 
+require_once '../DAO/UtilDAO.php';
+UtilDAO::VerificarLogado();
+
 require_once '../DAO/MovimentoDAO.php';
 require_once '../DAO/CategoriaDAO.php';
 require_once '../DAO/EmpresaDAO.php';

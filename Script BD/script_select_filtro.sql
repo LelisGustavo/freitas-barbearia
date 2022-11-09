@@ -102,3 +102,17 @@ SELECT DATE_FORMAT(data_movimento, '%d/%m/%Y') AS data_movimento,
 	WHERE data_cadastro BETWEEN '2020-01-01' AND '2022-10-12'
     AND tipo_movimento = 2;
     
+SELECT id_movimento_estoque,
+                               tb_movimento_estoque.id_estoque
+                               produto_estoque,
+                               tipo_movimento_estoque,
+                               DATE_FORMAT(data_movimento_estoque, "%d/%m/%Y") AS data_movimento_estoque,
+                               valor_movimento_estoque,
+                               obs_movimento_estoque
+                        FROM tb_movimento_estoque
+                        INNER JOIN tb_estoque
+                        ON tb_estoque.id_estoque = tb_movimento_estoque.id_estoque
+                        WHERE tb_movimento_estoque.id_usuario = ?
+                        AND tb_movimento_estoque.data_movimento_estoque BETWEEN ? AND ?
+                        AND tb_movimento_estoque.id_estoque = ?
+    

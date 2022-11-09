@@ -38,10 +38,20 @@ if (isset($ret)) {
                       O registro não poderá ser excluído, pois está em uso!
                     </div>';
       break;
-      case -5:
-        echo '<div class="alert alert-info">
+    case -5:
+      echo '<div class="alert alert-info">
                     Não foi encontrado nenhum registro!
                 </div>';
-        break;
+      break;
+    case -6:
+      echo '<div class="alert alert-danger">
+                      E-mail já cadastrado. Coloque um outro e-mail!
+                  </div>';
+      break;
+    case -7:
+      echo '<div class="alert alert-danger">
+                        Usuário não encontrado!
+                    </div>';
+      break;
   }
 }

@@ -1,5 +1,8 @@
 <?php
 
+require_once '../DAO/UtilDAO.php';
+UtilDAO::VerificarLogado();
+
 require_once '../DAO/AgendaDAO.php';
 
 $objDAO = new AgendaDAO();
@@ -72,7 +75,7 @@ include_once '_head.php';
                     <div class="col-md-4">
                         <div class="form-group" id="div_horario_1">
                             <label>Serviço a ser alterado*</label>
-                            <input class="form-control" name="nome_servico" id="nome_servico" value="<?= $dados[0]['nome_servico'] ?>" />
+                            <input class="form-control" name="nome_servico" id="nome_servico" value="<?= $dados[0]['nome_servico'] ?>" placeholder="Digite o nome do serviço.. Ex: corte de cabelo"/>
                         </div>
                     </div>
                     <div class="col-md-4">

@@ -1,5 +1,8 @@
 <?php
 
+require_once '../DAO/UtilDAO.php';
+UtilDAO::VerificarLogado();
+
 require_once '../DAO/MovimentoDAO.php';
 
 $tipo_movimento = '';
@@ -13,6 +16,16 @@ if (isset($_POST['btnPesquisar'])) {
     $objDAO = new MovimentoDAO();
 
     $movimentos = $objDAO->FiltrarMovimento($tipo_movimento, $data_inicial, $data_final);
+} elseif (isset($_POST['btnExcluir'])) {
+
+    $id_movimento = $_POST['id_movimento'];
+    $id_conta = $_POST['id_conta'];
+    $tipo_movimento = $_POST['tipo_movimento'];
+    $valor_movimento = $_POST['valor_movimento'];
+
+    $objDAO = new MovimentoDAO();
+    
+    $ret = $objDAO->ExcluirMovimento($id_movimento, $id_conta, $valor_movimento, $tipo_movimento);
 }
 
 ?>
@@ -33,6 +46,7 @@ include_once '_head.php';
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
+                        <?php include_once '_msg.php'; ?>
                         <h2>Consultar Movimento</h2>
                         <h5>Consulte todos os movimentos em um determinado período. </h5>
 
@@ -118,9 +132,52 @@ include_once '_head.php';
                                                             Número <?= $movimentos[$i]['numero_conta'] ?></td>
                                                         <td>R$ <?= number_format($movimentos[$i]['valor_movimento'], 2, ',', '.') ?></td>
                                                         <td><?= $movimentos[$i]['obs_movimento'] ?></td>
-                                                        <td><a href="#" class="btn btn-danger btn-sm">Excluir</a></td>
+                                                        <td>
+                                                            <a href="#" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#modal_excluir<?= $i ?>">Excluir</a>
+
+                                                            <form action="consultar_movimento.php" method="POST">
+                                                                <input type="hidden" name="id_movimento" value="<?= $movimentos[$i]['id_movimento'] ?>">
+
+                                                                <input type="hidden" name="id_conta" value="<?= $movimentos[$i]['id_conta'] ?>">
+
+                                                                <input type="hidden" name="tipo_movimento" value="<?= $movimentos[$i]['tipo_movimento'] ?>">
+
+                                                                <input type="hidden" name="valor_movimento" value="<?= $movimentos[$i]['valor_movimento'] ?>">
+
+                                                                <div class="modal fade" id="modal_excluir<?= $i ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                                    <div class="modal-dialog">
+                                                                        <div class="modal-content">
+                                                                            <div class="modal-header">
+                                                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                                                <h4 class="modal-title" id="myModalLabel">Confiirmação de exclusão</h4>
+                                                                            </div>
+                                                                            <div class="modal-body">
+                                                                                <center><b>Deseja excluir o movimento:</b></center> <br><br>
+
+                                                                                <b>Data do movimento: </b><?= $movimentos[$i]['data_movimento'] ?> <br>
+
+                                                                                <b>Tipo do movimento: </b><?= $movimentos[$i]['tipo_movimento'] == 1 ? 'Entrada' : 'Saída' ?> <br>
+
+                                                                                <b>Categoria: </b><?= $movimentos[$i]['nome_categoria'] ?> <br>
+
+                                                                                <b>Empresa: </b><?= $movimentos[$i]['nome_empresa'] ?> <br>
+
+                                                                                <b>Conta: </b><?= $movimentos[$i]['banco_conta'] ?> / Agência <?= $movimentos[$i]['agencia_conta'] ?> - Número <?= $movimentos[$i]['numero_conta'] ?> <br>
+
+                                                                                <b>Valor: </b> R$ <?= number_format($movimentos[$i]['valor_movimento'], 2, ',', '.') ?> <br>
+
+                                                                            </div>
+                                                                            <div class="modal-footer">
+                                                                                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                                                                                <button type="submit" name="btnExcluir" class="btn btn-primary">Confirmar</button>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                        </td>
+                                                    <?php } ?>
                                                     </tr>
-                                                <?php } ?>
                                             </tbody>
                                         </table>
                                         <center>

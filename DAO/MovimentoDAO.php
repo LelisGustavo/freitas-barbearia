@@ -83,7 +83,9 @@ class MovimentoDAO extends Conexao
 
         $conexao = parent::retornarConexao();
 
-        $comando_sql = 'SELECT tipo_movimento,
+        $comando_sql = 'SELECT  id_movimento,
+                                tb_movimento.id_conta,
+                                tipo_movimento,
                                 DATE_FORMAT(data_movimento, "%d/%m/%Y") AS data_movimento,
                                 valor_movimento,
                                 nome_categoria,
@@ -125,5 +127,63 @@ class MovimentoDAO extends Conexao
         $sql->execute();
 
         return $sql->fetchAll();
+    }
+
+    public function ExcluirMovimento($id_movimento, $id_conta, $valor,  $tipo_movimento)
+    {
+
+        if ($id_movimento == '' || $id_conta == '' || $valor == '' || $tipo_movimento == '') {
+
+            return 0;
+        }
+
+        $conexao = parent::retornarConexao();
+
+        $comando_sql = 'DELETE
+                        FROM tb_movimento
+                        WHERE id_movimento = ?';
+
+        $sql = new PDOStatement();
+
+        $sql = $conexao->prepare($comando_sql);
+
+        $sql->bindValue(1, $id_movimento);
+
+        $conexao->beginTransaction();
+
+        try {
+
+            $sql->execute();
+
+            if ($tipo_movimento == 1) {
+
+                $comando_sql = 'UPDATE tb_conta
+                                SET saldo_conta = saldo_conta - ?
+                                WHERE id_conta = ?';
+            } elseif ($tipo_movimento == 2) {
+
+                $comando_sql = 'UPDATE tb_conta
+                                SET saldo_conta = saldo_conta + ?
+                                WHERE id_conta = ?';
+            }
+
+            $sql = $conexao->prepare($comando_sql);
+
+            $sql->bindValue(1, $valor);
+            $sql->bindValue(2, $id_conta);
+
+            $sql->execute();
+
+            $conexao->commit();
+
+            return 1;
+        } catch (Exception $ex) {
+
+            $conexao->rollBack();
+
+            echo $ex->getMessage();
+
+            return -1;
+        }
     }
 }
