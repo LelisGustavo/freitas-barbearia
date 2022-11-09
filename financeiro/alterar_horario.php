@@ -75,7 +75,7 @@ include_once '_head.php';
                     <div class="col-md-4">
                         <div class="form-group" id="div_horario_1">
                             <label>Serviço a ser alterado*</label>
-                            <input class="form-control" name="nome_servico" id="nome_servico" value="<?= $dados[0]['nome_servico'] ?>" placeholder="Digite o nome do serviço.. Ex: corte de cabelo"/>
+                            <input class="form-control" name="nome_servico" id="nome_servico" value="<?= $dados[0]['nome_servico'] ?>" placeholder="Digite o nome do serviço.. Ex: corte de cabelo" maxlength="35"/>
                         </div>
                     </div>
                     <div class="col-md-4">

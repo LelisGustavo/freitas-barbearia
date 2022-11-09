@@ -52,7 +52,8 @@ class AgendaDAO extends Conexao
                                DATE_FORMAT(data_agenda, "%d/%m/%Y") AS data_agenda,
                                obs_agenda
                         FROM tb_agenda
-                        WHERE id_usuario = ?';
+                        WHERE id_usuario = ?
+                        ORDER BY nome_servico ASC';
 
         $sql = new PDOStatement();
 

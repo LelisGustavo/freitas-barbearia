@@ -50,7 +50,8 @@ class EmpresaDAO extends Conexao
                                telefone_empresa,
                                endereco_empresa
                         FROM tb_empresa
-                        WHERE id_usuario = ?';
+                        WHERE id_usuario = ?
+                        ORDER BY nome_empresa ASC';
 
         $sql = new PDOStatement();
 

@@ -74,19 +74,19 @@ include_once '_head.php';
                     <input type="hidden" name="cod" value="<?= $dados[0]['id_conta'] ?>">
                     <div class="form-group" id="div_conta_1">
                         <label>Nome do banco*</label>
-                        <input class="form-control" name="nome_banco" id="nome_banco" placeholder="Digite o nome do banco.." value="<?= $dados[0]['banco_conta'] ?>" />
+                        <input class="form-control" name="nome_banco" id="nome_banco" placeholder="Digite o nome do banco.." value="<?= $dados[0]['banco_conta'] ?>" maxlength="20" />
                     </div>
                     <div class="form-group" id="div_conta_2">
                         <label>Agência*</label>
-                        <input class="form-control" name="agencia" id="agencia" placeholder="Digite a agência" value="<?= $dados[0]['agencia_conta'] ?>" />
+                        <input class="form-control" name="agencia" id="agencia" placeholder="Digite a agência" value="<?= $dados[0]['agencia_conta'] ?>" maxlength="10" />
                     </div>
                     <div class="form-group" id="div_conta_3">
                         <label>Número da conta*</label>
-                        <input class="form-control" name="numero_conta" id="numero_conta" placeholder="Digite o número da conta" value="<?= $dados[0]['numero_conta'] ?>" />
+                        <input class="form-control" name="numero_conta" id="numero_conta" placeholder="Digite o número da conta" value="<?= $dados[0]['numero_conta'] ?>" maxlength="12" />
                     </div>
                     <div class="form-group" id="div_conta_4">
                         <label>Saldo*</label>
-                        <input class="form-control" name="saldo" id="saldo" placeholder="Digite o saldo da conta" value="<?= $dados[0]['saldo_conta'] ?>" />
+                        <input class="form-control" name="saldo" id="saldo" placeholder="Digite o saldo da conta" value="<?= $dados[0]['saldo_conta'] ?>" maxlength="10" />
                     </div>
                     <button type="submit" class="btn btn-success" name="btnSalvar" onclick="return ValidarConta()">Salvar</button>
                     <button type="button" data-toggle="modal" data-target="#modalExcluir" class="btn btn-danger">Excluir</button>

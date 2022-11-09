@@ -51,7 +51,7 @@ include_once '_head.php';
                     </div>
                     <div class="form-group" id="div_conta_2">
                         <label>Agência*</label>
-                        <input class="form-control" name="agencia" id="agencia" placeholder="Digite a agência" maxlength="8" />
+                        <input class="form-control" name="agencia" id="agencia" placeholder="Digite a agência" maxlength="10" />
                     </div>
                     <div class="form-group" id="div_conta_3">
                         <label>Número da conta*</label>
