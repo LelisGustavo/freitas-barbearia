@@ -10,7 +10,7 @@ VALUES
 INSERT INTO tb_usuario
 (nome_usuario, email_usuario, senha_usuario, data_cadastro)
 VALUES
-('Gustavo Lélis', 'LelisGustavo@hotmail.com', 'lelis3003', '2022-05-03'); -- ID == 3
+('Gustavo Lélis', 'LelisGustavo@hotmail.com', 'lelis123', '2022-05-03'); -- ID == 3
 
 INSERT INTO tb_usuario
 (nome_usuario, email_usuario, senha_usuario, data_cadastro)
